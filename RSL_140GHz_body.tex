@@ -23,9 +23,10 @@
 \title{On-Body Path Loss Modeling at D-Band Frequencies}
 \author{Brecht De Beelde,	% 1st author
 Reza~Aminzadeh,	% 2nd author
-Emmeric~Tanghe,	% 3rd author
-David~Plets,		% 4th author
-Wout~Joseph		% 5th author
+et al.
+%Emmeric~Tanghe,	% 3rd author
+%David~Plets,		% 4th author
+%Wout~Joseph		% 5th author
 }
 
 \begin{document}
@@ -37,26 +38,35 @@ Wout~Joseph		% 5th author
 %
 
 \begin{abstract}
-
-This letter presents an on-body path loss model
-
+This letter presents an empirical on-body path loss (PL) model at frequencies in the D-band, ranging from 110 to 170~GHz. 
+Based on measurements using a vector network analyzer (VNA)-based channel sounder with frequency extenders, PL is measured for distances ranging from 1 to 19~cm, using vertically and horizontally polarized horn antennas placed at heights of 1~mm to 6~mm above a skin phantom.
+The measured PL is fitted to an alpha-beta-gamma model, and wideband PL is fitted to a floating-intercept model.
+Both models have a high reference PL and low PL exponent. 
 \end{abstract}
 
 \section{Introduction\label{sect:intro}}
 
-Link to paper by Reza \cite{Aminzadeh2021_tap}. 
+In the last decade, the domain of personal area networks (PAN) has evolved into wireless body area networks (WBANs), where sensors in the body and on the body  wirelessly transmit data to a sink that is worn on the body \cite{Patel2010}. 
+Currently, WBANs operational at mmWave frequencies are being deployed, e.g., using the 60~GHz industrial, scientific, and medical (ISM) frequency band \cite{Aminzadeh2021_tap}.
+It is envisioned that future communication systems, including sixth generation (6G) wireless networks, will be important for the realization of WBANs \cite{Cornet2022}.
+These future communication systems may use frequencies above 100~GHz, such as the D-band with frequencies ranging from 110 to 170~GHz.
+D-band channel models are available for indoor \cite{DeBeelde2021_access, Pometcu2020} and outdoor \cite{DeBeelde2022_tap,DeBeelde2022_wcl} environments. 
+In this work, we present an on-body path loss (PL) model for D-band frequencies. 
+Compared to the existing D-band models, not only is the presence of the skin near the Line-of-Sight (LOS) path important, but also is the antenna separation limited. 
+As such, the antennas are not in the far field. 
 
+The outline of this letter is as follows.
 Section~\ref{sect:method} provides the measurement setup and scenarios. 
-Section~\ref{sect:results} provide the measurement results and path loss model, and Section~\ref{sect:conclusion} concludes this letter.
+Section~\ref{sect:results} provides the measurement results and path loss models, and Section~\ref{sect:conclusion} concludes this letter.
 
 \section{Methodology \label{sect:method}}
 
-A vector network analyzer (VNA) with frequency convertors is used to perform D-band channel measurements for antenna separations up to 20~cm, with a skin phantom positioned between the antennas. 
+A vector network analyzer (VNA) with frequency extenders is used to perform D-band channel measurements for antenna separations up to 20~cm, with a skin phantom positioned between the antennas. 
 This measurement setup is presented in Fig.~\ref{fig:sounder_setup}.
 \begin{figure}[tb]
 \begin{center}
 	\includegraphics[width=0.45\textwidth]{figures/measurement_setup}
-\caption{Picture of the measurement setup with vector network analyzer-based channel sounder.}
+\caption{Picture of the measurement setup with a vector network analyzer-based channel sounder.}
 \label{fig:sounder_setup}
 \end{center}
 \end{figure}
@@ -64,19 +74,19 @@ This measurement setup is presented in Fig.~\ref{fig:sounder_setup}.
 \subsection{Channel sounder}
 
 The VNA generates a radio frequency (RF) source input from $9.167$ to $14.167$~GHz that is multiplied by a factor 12 via frequency multiplication using an external frequency up-converter, which results in an RF output in the frequency range 110 to 170~GHz. 
-A harmonic mixer with multiplication factor 10 and a local oscillator (LO) input in frequency range $10.972$ to $16.9782$~GHz, is used for down-conversion, and generates a reference signal for the VNA. 
+A harmonic mixer with a multiplication factor of 10 and a local oscillator (LO) input in the frequency range $10.972$ to $16.9782$~GHz are used for down-conversion to generate a reference signal for the VNA. 
 A standard gain pyramidal horn antenna with a gain increasing from 22.2~dBi for 110~GHz  to 23.3~dBi for 170~GHz is connected to the frequency converter's WR-6 waveguide and transmits the D-band signal.
 At the receiver side, an identical antenna captures the received signal, which is down-converted using the harmonic mixer of the frequency down-converter that uses the same LO input. 
 The down-converted signal is sent to the measurement port of the VNA. 
 The VNA measures the phase and amplitude difference between the reference signal at port 1 and the measured signal at port 2.
-The antennas have a H-plane half power beam width (HPBW) ranging from 13.2$^{\circ}$ at 110~GHz to 12$^{\circ}$ at 170~GHz and an E-plane HPBW ranging from 12$^{\circ}$ at 110~GHz to 8.8$^{\circ}$ at 170~GHz. 
-The Fraunhofer far-field distance $d_F$ of these antennas, calculated via (\ref{eq:Fraunhofer}), equals 0.55~m at 170~GHz as $D$ is equal to 0.022~m and the wavelength $\lambda$ is 0.00176 m.
+The antennas have an H-plane half power beam width (HPBW) ranging from 13.2$^{\circ}$ at 110~GHz to 12$^{\circ}$ at 170~GHz and an E-plane HPBW ranging from 12$^{\circ}$ at 110~GHz to 8.8$^{\circ}$ at 170~GHz. 
+The Fraunhofer far-field distance $d_F$ of these antennas, calculated via (\ref{eq:Fraunhofer}), equals 0.55~m at 170~GHz as $D$ is equal to 0.022~m and the wavelength $\lambda$ is 0.00176~m.
 \begin{equation}
 \label{eq:Fraunhofer}
 d_F = \frac{2 D^2}{\lambda}
 \end{equation}
 
-We perform a frequency sweep with 3001 frequency points and a frequency step size of 20~MHz. 
+A frequency sweep is performed with 3001 frequency points and a frequency step size of 20~MHz. 
 The intermediate frequency (IF) measurement bandwidth (BW) of the VNA is set to 100~Hz. 
 The output power is set to 16 dBm.
 A normalized forward calibration is performed before all measurements, with the converters' WR-6 waveguides as the reference plane of the calibration. 
@@ -86,55 +96,67 @@ The VNA's sweep time is 45~s during which the channel is assumed to be static, a
 The IF BW and transmit power settings result in a dynamic range of the sounder of 95~dB.
 Due to the high bandwidth, a high temporal resolution $\Delta\tau$ of $0.0167$~ns is obtained.
 The maximum resolvable time delay of 50~ns corresponds to a path length of 15~m.
-The validation of the channel sounder is presented in previous work \cite{DeBeelde2021}. 
+The validation of the channel sounder is presented in previous work \cite{DeBeelde2021_eucap}. 
 
 \subsection{Measurement scenarios}
 
-Reference measurement are performed with an antenna separation of 1~m, i.e., the antennas are in the far field. 
-Absorbers are placed to limit the environmental influence.
+Before the on-body measurements, reference measurements were performed. 
+The antenna separation during the reference measurements was 1.5~m, i.e., the antennas are in the far field, and no obstacles were present in between the antennas. 
+Absorbers were placed to limit the environmental influence.
 The reference measurements are used to evaluate antenna gains, cable losses, and conversion losses over the full band. 
 
-For the on-body PL measurements, the antenna separation ranges from 1~cm to 19~cm, by moving the RX antenna away from the TX antenna in steps of 3~cm.
-In between the antennas, a skin phantom is placed. 
-The antennas are placed at different heights above the skin phantom of respectively 1~mm, 3~mm, and 6~mm. 
-Measurements are performed with both horizontal (HH) and vertical (VV) co-polarized antennas.
+For the on-body PL measurements, the antenna separation ranged from 1~cm to 19~cm, by moving the RX antenna away from the TX antenna in steps of 3~cm.
+A skin phantom was placed between the antennas. 
+The antennas were placed at different heights above the skin phantom of respectively 1~mm, 3~mm, and 6~mm. 
+Measurements were performed with both horizontal (HH) and vertical (VV) co-polarized antennas, by rotating the convertors by 90 degrees.
 
 \subsection{Skin phantom}
 
 Information on the skin phantom comes here.
+\vspace{50pt}
 
 \subsection{Data processing}
 
-From the measured transfer function $H(f)$, PL is obtained via (\ref{eq:PL}), with $N$ the number of frequency sweeps, $G_a(f)$ the frequency-dependent antenna gain and $C(f)$ a correction term based on reference measurements that are performed in the center of the lab, without nearby reflectors \cite{DeBeelde2021}.
+From the measured transfer function $H(f)$, PL (in dB) is obtained via (\ref{eq:PL}), with $N$ the number of frequency sweeps, $G_a(f)$ the frequency-dependent antenna gain and $C(f)$ a correction term based on the reference measurements \cite{DeBeelde2021_eucap}.
+\newpage
 \begin{equation}
 \label{eq:PL}
-\text{PL}_{\text{dB}}(f)= -10 \text{log}_{10} \left( \frac{1}{N} \sum_{i=1}^N | H_i(f) |^2 \right) + 2 G_a(f) + C(f)
+\text{PL}(f)= -10 \text{log}_{10} \left( \frac{1}{N} \sum_{i=1}^N | H_i(f) |^2 \right) + 2 G_a(f) + C(f)
 \end{equation}
-After applying the Hann window $\mathcal{W}$, the inverse discrete Fourier transformation (IDFT) of the transfer function $H(f)$ results in the channel impulse response (CIR) from which the averaged power delay profile (PDP) is found via (\ref{eq:PDP}).
+After applying the Hann window $\mathcal{W}$, the inverse discrete Fourier transformation (IDFT) of the transfer function $H(f)$ results in the channel impulse response (CIR) from which the averaged power delay profile (PDP) is found. 
+This is mathematically presented in (\ref{eq:PDP}).
 \begin{equation}
 \text{PDP}(k\Delta\tau) = \frac{1}{N} \sum_{i=1}^N | \text{IDFT}(\mathcal{W}(f) \cdot H_i(f)) |^2
 \label{eq:PDP}
 \end{equation}
-The temporal resolution of the PDP $\Delta\tau$ is XX~ns, and the maximum resolvable time domain is XX~ns.
-From the PDP, the root-mean-squared (RMS) delay spread is calculated via (\ref{eq:DS}), with \dots
+%The temporal resolution of the PDP $\Delta\tau$ is XX~ns, and the maximum resolvable time domain is XX~ns.
+%From the PDP, the root-mean-squared (RMS) delay spread is calculated via (\ref{eq:DS}), with \dots
+%\begin{equation}
+%\text{PDP}(k\Delta\tau) = \dots
+%\label{eq:DS}
+%\end{equation}
+From the PDP, wideband on-body PL is obtained. 
+First, the power of the first peak of the PDP of the reference measurements is compared to free space PL (FSPL), calculated via (\ref{eq:FSPL}), with $d$ the distance in meters, $f$ the frequency in Hz, and c the speed of light. 
 \begin{equation}
-\text{PDP}(k\Delta\tau) = \dots
-\label{eq:DS}
+\text{FSPL}(d,f)= 20 \log_{10} \left( 4 \pi d \frac{f}{\text{c}}\right)
+\label{eq:FSPL}
 \end{equation}
-Wideband on-body PL is obtained by comparing the power of the first peak of the PDP to the power of the first peak of the reference measurements, i.e., without the skin phantom placed close to the antennas. 
-This is represented in (\ref{eq:WB-PL}), with \dots
-\begin{equation}
-\text{PL}_\text{dB} = \dots
+The offset is then added to the power of the first peak of the PDP of the on-body PL measurements. 
+This is represented in (\ref{eq:WB-PL}), in which the first term is the peak of the PDP of the on-body measurements (positive value), and the second term is the offset between the peak the PDP of the reference measurements and FSPL.
+\begin{multline}
+\text{PL} = - \text{max}(\text{PDP})  + (\text{FSPL}(1.5 \text{m}, 140\cdot10^9 \text{Hz}) \\ + \text{max}(\text{PDP}_\text{ref, 1.5m}) )
 \label{eq:WB-PL}
-\end{equation}
+\end{multline}
+
+\subsection{Path loss models}
 
 Measured PL as a function of frequency, obtained via (\ref{eq:PL}), is fitted to the alpha-beta-gamma (ABG) model from (\ref{eq:ABG}), with $d$ the distance in m, d$_0$ the reference distance, $f$ the frequency in GHz, and f$_0$ the reference frequency.  
-In this work, a reference distance d$_0$ of 1~cm and a reference frequency f$_0$ of 1~GHz is selected.
+In this work, a reference distance d$_0$ of 1~cm and a reference frequency f$_0$ of 1~GHz are selected.
 The model parameter $\alpha$ is the floating intercept in dB, i.e., the PL for distance d$_0$ at frequency f$_0$, $\beta$ is the dimensionless PL exponent, $\gamma$ is the dependence of PL on frequency, and $\chi_{\sigma}$ is the shadow fading term in dB \cite{Salous2020}. 
-\begin{equation}
-  \text{PL}_{\text{ABG}}(d,f) = \alpha + 10 \beta \log_{10}\left(\frac{d}{\text{d}_0}\right) + 10 \gamma \log_{10}\left(\frac{f}{ \text{f}_0}\right) + \chi_{\sigma}
+\begin{multline}
+  \text{PL}_{\text{ABG}}(d,f) = \alpha + 10 \beta \log_{10}\left(\frac{d}{\text{d}_0}\right) \\ + 10 \gamma \log_{10}\left(\frac{f}{ \text{f}_0}\right) + \chi_{\sigma}
   \label{eq:ABG}
-\end{equation}
+\end{multline}
 
 Wideband PL, obtained via (\ref{eq:WB-PL}), is fitted to the floating-intercept (FI) PL model from (\ref{eq:FI}), with $d$ the distance in m, d$_0$ the reference distance of 1~cm and PL exponent n. 
 The shadow fading term $\chi_\sigma$ in dB is again based on a zero-mean normal distribution with standard deviation $\sigma$. 
@@ -145,67 +167,105 @@ The shadow fading term $\chi_\sigma$ in dB is again based on a zero-mean normal 
 
 \section{Results\label{sect:results}}
 
+\subsection{Frequency-dependent path loss}
+
 Figure~\ref{fig:PL_vs_freq} visualized measured PL as a function of frequency for two polarizations and two distances, with an antenna height of 1~mm.
-\begin{figure}[tb]
+The measured PL is higher than FSPL, due to absorption by the skin phantom.
+Moreover, measured PL for horizontal co-polarized antennas (HH) is higher than for vertically polarized antennas (VV).
+This is in line with the HPBW of the used antennas; the H-plane HPBW is larger than the E-plane HPBW and therefore, more radiated power is absorbed by the phantom in the horizontal co-polarized antenna setup.
+\begin{figure}[b!]
 \begin{center}
 	\includegraphics[width=0.45\textwidth]{figures/PL_vs_freq}
-\caption{Measured path loss as a function of frequency for antenna height 1~mm above the skin phantom.}
+\caption{Measured path loss as a function of frequency for an antenna height of 1~mm above the skin phantom, antenna separations 10 and 19~cm, and vertical (VV) and horizontal (HH) co-polarizations.}
 \label{fig:PL_vs_freq}
 \end{center}
 \end{figure}
 
 Fitting measurement data to the ABG model results in the fitted parameters listed in Table~\ref{table:ABG}. 
-\begin{table}
+Both the PL exponent $\beta$ and frequency-dependence $\gamma$ are smaller than the free space value of 2. 
+The p-values of all fitted parameters are below the significance level of 10$^{-3}$. 
+\begin{table}[tb]
   \caption{Fitted parameters of the ABG model for different polarizations (P) and antenna heights (H) above the skin phantom.}
   \label{table:ABG}
   \begin{center}
     \begin{tabular}{cc|cccc}
       P & H [mm] & $\alpha$ & $\beta$ & $\gamma$ & RMSE \\
       \hline
-      VV & 1 \\
-      VV & 2\\
-      VV & 3\\
-      HH & 1\\
-      HH & 2\\
-      HH & 3\\
+      VV & 1 & 44.6 dB & 0.54 & 0.48 & 2.7~dB \\
+      VV & 2 & 38.0 dB & 0.81 & 0.62 & 3.3~dB \\
+      VV & 3 & 41.2 dB & 0.65 & 0.54 & 2.6~dB \\
+      HH & 1 & 26.6~dB & 3.13 & 0.30 & 3.0~dB \\
+      HH & 2 & 44.5~dB & 0.68 & 0.36 & 2.3~dB \\
+      HH & 3 & 45.5~dB & 0.60 & 0.34 & 2.2~dB \\
     \end{tabular}
   \end{center}
 \end{table}
-Table~\ref{table:FI} lists the fitted parameters of the FI PL model from (\ref{eq:FI}). \emph{Fit for different polarizations/antenna heights or is there another approach?}
-\begin{table}
+
+\subsection{Wideband path loss}
+
+Figure~\ref{fig:PDP} shows the PDP for some select measurement scenarios. 
+It is clear that round-trip reflections, i.e., reflections on the TX and RX antennas, are present.
+These reflections cause a pulse to spread in time.
+\begin{figure}[tb]
+\begin{center}
+	\includegraphics[width=0.45\textwidth]{figures/PDP}
+\caption{Measured power delay profile (PDP) for different antenna separations and polarizations, with the antennas placed at 1~mm above the skin phantom.}
+\label{fig:PDP}
+\end{center}
+\end{figure}
+The reflections on the skin phantom cannot be resolved in the PDP, as the direct and reflected path lengths differ by less than 5~mm.
+
+Wideband PL is obtained by selecting the power of the first peak and converting it into PL via (\ref{eq:WB-PL}). 
+The measured PL as a function of distance is shown in Fig.~\ref{fig:PL_vs_dist}. 
+\begin{figure}[tb]
+\begin{center}
+	\includegraphics[width=0.45\textwidth]{figures/PL_vs_dist_VV}
+	\\
+	(a) VV
+	\\
+	\includegraphics[width=0.45\textwidth]{figures/PL_vs_dist_HH}
+	\\
+	(b) HH
+\caption{Measured wideband PL as a function of distance for different antenna heights.}
+\label{fig:PL_vs_dist}
+\end{center}
+\end{figure}
+From this figure, the small distance-dependence of PL is clear, which is in line with the low PL exponent $\beta$ from Table~\ref{table:ABG}.
+Table~\ref{table:FI} lists the fitted parameters of the FI PL model from (\ref{eq:FI}).
+In this case, the p-value of the PL exponent for VV polarization and antenna heights of 1 and 3~mm is above the 0.05 threshold.
+\begin{table}[tb]
   \caption{Fitted parameters of the FI model for different polarizations (P) and antenna heights (H) above the skin phantom.}
   \label{table:FI}
   \begin{center}
     \begin{tabular}{cc|cccc}
       P & H [mm] & PL$_0$ & n& RMSE \\
       \hline
-      VV & 1 \\
-      VV & 2\\
-      VV & 3\\
-      HH & 1\\
-      HH & 2\\
-      HH & 3\\
+      VV & 1 & 61.1 dB & 0.25 & 3.0~dB \\
+      VV & 2 & 56.6 dB & 0.65 & 2.6~dB \\
+      VV & 3 & 56.5 dB & 0.60 & 0.9~dB \\
+      HH & 1 & 37.3 dB & 3.04 & 2.2~dB \\
+      HH & 2 & 54.8 dB & 0.72 & 2.0~dB \\
+      HH & 3 & 55.3~dB & 0.67 & 1.4~dB \\
     \end{tabular}
   \end{center}
 \end{table}
 
-Figure~\ref{fig:PDP} shows the PDP for some select measurement scenarios. 
-It is clear that round-trip reflections, i.e., reflections on the TX and RX antennas, are present. 
-These reflections cause a pulse to spread in time, which reflects on the RMS delay spread values that range from XX~ns for YY to ZZ~ns for WW.
-\begin{figure}[tb]
-\begin{center}
-%	\includegraphics[width=0.45\textwidth]{figures/PDP}
-\caption{Measured power delay profile (PDP) for antenna heights 1~mm and 3~mm above the skin phantom.}
-\label{fig:PDP}
-\end{center}
-\end{figure}
-The reflections on the skin phantom cannot be resolved in the PDP, as the direct and reflected path lengths differ by less than XX~cm.
+\subsection{Discussion}
+
+The difference between measured PL and FSPL is higher for small distances, due to a bad performance of the antennas, i.e., they are too close for efficient radiation. 
+Even though the antennas are still in the near field, the measured PL is closer to FSPL for larger distances. 
+Due to the high PL for small distances, both the ABG and FI models result in a PL exponent well below 2, with a reference PL above FSPL. 
+When the antenna is placed at a higher height above the skin phantom, there is less absorption resulting in a lower PL. 
+The absorption is most pronounced for the horizontal co-polarized antennas at a height of 1~mm.
 
 \section{Conclusions\label{sect:conclusion}}
 
-In this letter, \dots
+In this letter, an on-body measurement campaign is presented at D-band frequencies, ranging from 110 to 170~GHz. 
+With an increased frequency, and using miniaturized antennas, the far-field distance of the antennas increases, and the antennas do not radiate efficiently, resulting in a high measured path loss. 
+Furthermore, when the antennas are placed above a skin, the skin absorbs part of the electromagnetic power.
+Both effects result in a path loss model with a high reference path loss and low path loss exponent.
 
-Future work includes the validation of the PL models on a real human body, and taking into account antenna mismatch, e.g., cause by wrist rotation.
+Future work includes the validation of the PL models on a real human body and taking into account antenna mismatch, e.g., caused by wrist rotation.
 
 \section{Acknowledgment}
 
@@ -225,8 +285,9 @@ D-BARC received support from Flanders Innovation \& Entrepreneurship.
 % Note that the authors' affiliations and contact information should be
 % here, after the references.
 %
+\newpage
 \noindent\small
-B. De Beelde, E. Tanghe, D. Plets and W. Joseph are with Ghent University/IMEC, Department of Information Technology, Ghent, Belgium. 
+B. De Beelde, E. Tanghe, A. Thielens, D. Plets, and W. Joseph are with Ghent University/IMEC, Department of Information Technology, Ghent, Belgium. 
 R. Aminzadeh is with Unitron Group. 
 Corresponding author: B. De Beelde. 
 E-mail:Brecht.DeBeelde@UGent.be
