@@ -21,12 +21,10 @@
 % at the end of the manuscript.
 %
 \title{On-Body Path Loss Modeling at D-Band Frequencies}
-\author{Brecht De Beelde,	% 1st author
-Reza~Aminzadeh,	% 2nd author
-et al.
-%Emmeric~Tanghe,	% 3rd author
-%David~Plets,		% 4th author
-%Wout~Joseph		% 5th author
+\author{Brecht De Beelde,
+Reza~Aminzadeh,
+Arno~Thielens,
+Wout~Joseph
 }
 
 \begin{document}
@@ -38,35 +36,39 @@ et al.
 %
 
 \begin{abstract}
-This letter presents an empirical on-body path loss (PL) model at frequencies in the D-band, ranging from 110 to 170~GHz. 
+This letter presents empirical on-body path loss (PL) models at frequencies in the D-band, ranging from 110 to 170~GHz. 
 Based on measurements using a vector network analyzer (VNA)-based channel sounder with frequency extenders, PL is measured for distances ranging from 1 to 19~cm, using vertically and horizontally polarized horn antennas placed at heights of 1~mm to 6~mm above a skin phantom.
 The measured PL is fitted to an alpha-beta-gamma model, and wideband PL is fitted to a floating-intercept model.
-Both models have a high reference PL and low PL exponent. 
+Both models have a high reference PL and low PL exponent below 1. 
+Even though the frequency dependence is small, PL increases with frequency. 
+When the antennas are closer to the skin phantom, more electromagnetic power is absorbed by the phantom which results in a higher PL.
 \end{abstract}
 
 \section{Introduction\label{sect:intro}}
 
-In the last decade, the domain of personal area networks (PAN) has evolved into wireless body area networks (WBANs), where sensors in the body and on the body  wirelessly transmit data to a sink that is worn on the body \cite{Patel2010}. 
-Currently, WBANs operational at mmWave frequencies are being deployed, e.g., using the 60~GHz industrial, scientific, and medical (ISM) frequency band \cite{Aminzadeh2021_tap}.
+In the last decade, the domain of personal area networks (PAN) has evolved into wireless body area networks (WBANs), where sensors in the body and on the body  wirelessly transmit data to a sink that is worn on the body \cite{Patel2010,Reusens2009} or off the body \cite{Marinova2015}. 
+Numerous channel models for WBANs at frequencies below 10~GHz are available \cite{VanRoy2010,Qaraqe2014} and WBANs operational at mmWave frequencies are being deployed, e.g., using the 60~GHz industrial, scientific, and medical (ISM) frequency band \cite{Petrillo2014, Aminzadeh2021_tap}.
+Apart from research on radio propagation near the body, the design of antennas for WBAN applications is an active research topic \cite{Zhang2021,Mahmood2020,Hong2016,Tak2016,Verbiest2006}.
 It is envisioned that future communication systems, including sixth generation (6G) wireless networks, will be important for the realization of WBANs \cite{Cornet2022}.
 These future communication systems may use frequencies above 100~GHz, such as the D-band with frequencies ranging from 110 to 170~GHz.
 D-band channel models are available for indoor \cite{DeBeelde2021_access, Pometcu2020} and outdoor \cite{DeBeelde2022_tap,DeBeelde2022_wcl} environments. 
 In this work, we present an on-body path loss (PL) model for D-band frequencies. 
+For the first time, on-phantom PL measurements are performed above 100~GHz with the goal to characterize the radio channel for short-range high-data rate wireless communication in WBANs.
 Compared to the existing D-band models, not only is the presence of the skin near the Line-of-Sight (LOS) path important, but also is the antenna separation limited. 
 As such, the antennas are not in the far field. 
 
-The outline of this letter is as follows.
-Section~\ref{sect:method} provides the measurement setup and scenarios. 
-Section~\ref{sect:results} provides the measurement results and path loss models, and Section~\ref{sect:conclusion} concludes this letter.
+% The outline of this letter is as follows.
+% Section~\ref{sect:method} provides the measurement setup and scenarios. 
+% Section~\ref{sect:results} provides the measurement results and path loss models, and Section~\ref{sect:conclusion} concludes this letter.
 
 \section{Methodology \label{sect:method}}
 
-A vector network analyzer (VNA) with frequency extenders is used to perform D-band channel measurements for antenna separations up to 20~cm, with a skin phantom positioned between the antennas. 
+A vector network analyzer (VNA) with frequency extenders is used to perform D-band channel measurements for antenna separations up to 19~cm, with a skin phantom positioned between the antennas. 
 This measurement setup is presented in Fig.~\ref{fig:sounder_setup}.
 \begin{figure}[tb]
 \begin{center}
 	\includegraphics[width=0.45\textwidth]{figures/measurement_setup}
-\caption{Picture of the measurement setup with a vector network analyzer-based channel sounder.}
+\caption{Picture of the measurement setup with a vector network analyzer (VNA)-based channel sounder.}
 \label{fig:sounder_setup}
 \end{center}
 \end{figure}
@@ -103,7 +105,7 @@ The validation of the channel sounder is presented in previous work \cite{DeBeel
 Before the on-body measurements, reference measurements were performed. 
 The antenna separation during the reference measurements was 1.5~m, i.e., the antennas are in the far field, and no obstacles were present in between the antennas. 
 Absorbers were placed to limit the environmental influence.
-The reference measurements are used to evaluate antenna gains, cable losses, and conversion losses over the full band. 
+The reference measurements are used to evaluate antenna gains, cable losses, and conversion losses over the full band \cite{DeBeelde2021_eucap}. 
 
 For the on-body PL measurements, the antenna separation ranged from 1~cm to 19~cm, by moving the RX antenna away from the TX antenna in steps of 3~cm.
 A skin phantom was placed between the antennas. 
@@ -118,7 +120,6 @@ Information on the skin phantom comes here.
 \subsection{Data processing}
 
 From the measured transfer function $H(f)$, PL (in dB) is obtained via (\ref{eq:PL}), with $N$ the number of frequency sweeps, $G_a(f)$ the frequency-dependent antenna gain and $C(f)$ a correction term based on the reference measurements \cite{DeBeelde2021_eucap}.
-\newpage
 \begin{equation}
 \label{eq:PL}
 \text{PL}(f)= -10 \text{log}_{10} \left( \frac{1}{N} \sum_{i=1}^N | H_i(f) |^2 \right) + 2 G_a(f) + C(f)
@@ -165,25 +166,30 @@ The shadow fading term $\chi_\sigma$ in dB is again based on a zero-mean normal 
   \label{eq:FI}
 \end{equation}
 
-\section{Results\label{sect:results}}
+\section{Results and discussion\label{sect:results}}
 
 \subsection{Frequency-dependent path loss}
 
-Figure~\ref{fig:PL_vs_freq} visualized measured PL as a function of frequency for two polarizations and two distances, with an antenna height of 1~mm.
-The measured PL is higher than FSPL, due to absorption by the skin phantom.
-Moreover, measured PL for horizontal co-polarized antennas (HH) is higher than for vertically polarized antennas (VV).
-This is in line with the HPBW of the used antennas; the H-plane HPBW is larger than the E-plane HPBW and therefore, more radiated power is absorbed by the phantom in the horizontal co-polarized antenna setup.
+Figure~\ref{fig:PL_vs_freq} visualizes measured PL as a function of frequency for two polarizations and two distances, with an antenna height of 1~mm.
 \begin{figure}[b!]
 \begin{center}
-	\includegraphics[width=0.45\textwidth]{figures/PL_vs_freq}
-\caption{Measured path loss as a function of frequency for an antenna height of 1~mm above the skin phantom, antenna separations 10 and 19~cm, and vertical (VV) and horizontal (HH) co-polarizations.}
+  \includegraphics[width=0.45\textwidth]{figures/PL_vs_freq}
+\caption{Measured path loss (PL) as a function of frequency for an antenna height of 1~mm above the skin phantom, antenna separations 10 and 19~cm, and vertical (VV) and horizontal (HH) co-polarizations.}
 \label{fig:PL_vs_freq}
 \end{center}
 \end{figure}
+The measured PL is higher than FSPL, due to absorption of radiated electromagnetic power by the skin phantom.
+The highest PL is measured for the lowest height of 1~mm above the skin phantom as more of the radiated electromagnetic power is absorbed by the phantom.
+Moreover, measured PL for horizontal co-polarized antennas (HH) is higher than for vertically polarized antennas (VV).
+This is in line with the HPBW of the used antennas; the H-plane HPBW is larger than the E-plane HPBW and therefore, more radiated power is absorbed by the phantom in the horizontal co-polarized antenna setup.
 
-Fitting measurement data to the ABG model results in the fitted parameters listed in Table~\ref{table:ABG}. 
+Fitting the measurement data to the ABG model from (\ref{eq:ABG}) results in the fitted parameters listed in Table~\ref{table:ABG}. 
 Both the PL exponent $\beta$ and frequency-dependence $\gamma$ are smaller than the free space value of 2. 
 The p-values of all fitted parameters are below the significance level of 10$^{-3}$. 
+Two aspects explain the low values for $\beta$ and $\gamma$, compared to the higher PL exponents ranging from 2 to 5 that are reported at mmWave frequencies \cite{Petrillo2014, Aminzadeh2021_tap}. 
+First, measurements are performed for very small antenna separations at which near-field effects need to be considered, whereas, the PL calculation in (\ref{eq:PL}) considers the far-field antenna gain.
+Therefore, high PL values are obtained for smaller distances, which results in the smaller slope, i.e., a high reference PL $\alpha$ and low fitted values for $\beta$ and $\gamma$.
+Second, the antennas in our measurements were perfectly aligned, whereas, antenna misalignment during measurements on a real body will increase PL \cite{Aminzadeh2021_tap}.
 \begin{table}[tb]
   \caption{Fitted parameters of the ABG model for different polarizations (P) and antenna heights (H) above the skin phantom.}
   \label{table:ABG}
@@ -192,11 +198,11 @@ The p-values of all fitted parameters are below the significance level of 10$^{-
       P & H [mm] & $\alpha$ & $\beta$ & $\gamma$ & RMSE \\
       \hline
       VV & 1 & 44.6 dB & 0.54 & 0.48 & 2.7~dB \\
-      VV & 2 & 38.0 dB & 0.81 & 0.62 & 3.3~dB \\
-      VV & 3 & 41.2 dB & 0.65 & 0.54 & 2.6~dB \\
+      VV & 3 & 38.0 dB & 0.81 & 0.62 & 3.3~dB \\
+      VV & 6 & 41.2 dB & 0.65 & 0.54 & 2.6~dB \\
       HH & 1 & 26.6~dB & 3.13 & 0.30 & 3.0~dB \\
-      HH & 2 & 44.5~dB & 0.68 & 0.36 & 2.3~dB \\
-      HH & 3 & 45.5~dB & 0.60 & 0.34 & 2.2~dB \\
+      HH & 3 & 44.5~dB & 0.68 & 0.36 & 2.3~dB \\
+      HH & 6 & 45.5~dB & 0.60 & 0.34 & 2.2~dB \\
     \end{tabular}
   \end{center}
 \end{table}
@@ -206,7 +212,7 @@ The p-values of all fitted parameters are below the significance level of 10$^{-
 Figure~\ref{fig:PDP} shows the PDP for some select measurement scenarios. 
 It is clear that round-trip reflections, i.e., reflections on the TX and RX antennas, are present.
 These reflections cause a pulse to spread in time.
-\begin{figure}[tb]
+\begin{figure}[b!]
 \begin{center}
 	\includegraphics[width=0.45\textwidth]{figures/PDP}
 \caption{Measured power delay profile (PDP) for different antenna separations and polarizations, with the antennas placed at 1~mm above the skin phantom.}
@@ -241,36 +247,37 @@ In this case, the p-value of the PL exponent for VV polarization and antenna hei
       P & H [mm] & PL$_0$ & n& RMSE \\
       \hline
       VV & 1 & 61.1 dB & 0.25 & 3.0~dB \\
-      VV & 2 & 56.6 dB & 0.65 & 2.6~dB \\
-      VV & 3 & 56.5 dB & 0.60 & 0.9~dB \\
+      VV & 3 & 56.6 dB & 0.65 & 2.6~dB \\
+      VV & 6 & 56.5 dB & 0.60 & 0.9~dB \\
       HH & 1 & 37.3 dB & 3.04 & 2.2~dB \\
-      HH & 2 & 54.8 dB & 0.72 & 2.0~dB \\
-      HH & 3 & 55.3~dB & 0.67 & 1.4~dB \\
+      HH & 3 & 54.8 dB & 0.72 & 2.0~dB \\
+      HH & 6 & 55.3~dB & 0.67 & 1.4~dB \\
     \end{tabular}
   \end{center}
 \end{table}
 
-\subsection{Discussion}
-
 The difference between measured PL and FSPL is higher for small distances, due to a bad performance of the antennas, i.e., they are too close for efficient radiation. 
 Even though the antennas are still in the near field, the measured PL is closer to FSPL for larger distances. 
 Due to the high PL for small distances, both the ABG and FI models result in a PL exponent well below 2, with a reference PL above FSPL. 
-When the antenna is placed at a higher height above the skin phantom, there is less absorption resulting in a lower PL. 
-The absorption is most pronounced for the horizontal co-polarized antennas at a height of 1~mm.
+PL is lower when the antennas are placed at a higher height above the skin phantom. 
+In line with the results from Fig.~\ref{fig:PL_vs_freq}, the absorption is most pronounced for the HH polarization at a height of 1~mm.
 
 \section{Conclusions\label{sect:conclusion}}
 
 In this letter, an on-body measurement campaign is presented at D-band frequencies, ranging from 110 to 170~GHz. 
-With an increased frequency, and using miniaturized antennas, the far-field distance of the antennas increases, and the antennas do not radiate efficiently, resulting in a high measured path loss. 
-Furthermore, when the antennas are placed above a skin, the skin absorbs part of the electromagnetic power.
+The influence of distance, frequency, antenna height above the skin phantom, and polarization are investigated.
+With an increased frequency, and using miniaturized antennas, the far-field distance of the antennas increases, and the antennas do not radiate efficiently at small antenna separations, resulting in a high measured path loss. 
+Furthermore, when the antennas are placed above a skin, the skin absorbs part of the radiated electromagnetic power.
 Both effects result in a path loss model with a high reference path loss and low path loss exponent.
+The PL is higher when the height above the phantom is lower, and for a horizontally co-polarized antenna setup. 
+The latter is caused by the larger half-power beamwidth of the antennas in the H-plane.
 
 Future work includes the validation of the PL models on a real human body and taking into account antenna mismatch, e.g., caused by wrist rotation.
+Furthermore, a joint antenna and channel model is required, i.e., the antenna and channel characteristics need to be evaluated jointly as the antenna cannot be de-embedded from the measurements via the characteristics that are typically presented in the datasheet.
 
 \section{Acknowledgment}
 
 This work was executed within the imec AAA D-band channel modeling research project (D-BARC) and EOS project multi-service wireless network (MUSE-WINET). 
-D-BARC received support from Flanders Innovation \& Entrepreneurship.
 
 \vspace{3pt}
 
@@ -285,9 +292,8 @@ D-BARC received support from Flanders Innovation \& Entrepreneurship.
 % Note that the authors' affiliations and contact information should be
 % here, after the references.
 %
-\newpage
 \noindent\small
-B. De Beelde, E. Tanghe, A. Thielens, D. Plets, and W. Joseph are with Ghent University/IMEC, Department of Information Technology, Ghent, Belgium. 
+B. De Beelde, A. Thielens, and W. Joseph are with Ghent University/IMEC, Department of Information Technology, Ghent, Belgium. 
 R. Aminzadeh is with Unitron Group. 
 Corresponding author: B. De Beelde. 
 E-mail:Brecht.DeBeelde@UGent.be
