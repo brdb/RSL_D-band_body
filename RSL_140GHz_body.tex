@@ -46,7 +46,7 @@ The measured PL is higher when the antennas are closer to the skin phantom.
 
 \section{Introduction\label{sect:intro}}
 
-In the last decade, the domain of personal area networks (PAN) has evolved into wireless body area networks (WBANs), where sensor and actuator nodes in and on the body  wirelessly transmit data to eachother \cite{Patel2010} or off the body \cite{Marinova2015}. 
+In the last decade, the domain of personal area networks (PAN) has evolved into wireless body area networks (WBANs), where sensor and actuator nodes in and on the body wirelessly transmit data to each other \cite{Patel2010} or off the body \cite{Marinova2015}. 
 Numerous channel models for WBANs at frequencies below 10~GHz are available \cite{VanRoy2010} and WBANs operational at millimeter-wave frequencies are being deployed, e.g., in the V-band at 60~GHz \cite{Chahat2013,Petrillo2014,Aminzadeh2021_tap}, and the W-band around 94 GHz \cite{Brizzi2013,Ali2022}.
 
 On-body path loss (PL) is generally studied using three approaches: theoretically \cite{Chahat2013,Petrillo2014}, numerically \cite{Reusens2009}, and using measurements \cite{Chahat2013,Reusens2009,Aminzadeh2021_tap}. 
@@ -54,12 +54,12 @@ On-body measurements have the disadvantages that they introduce subject-to-subje
 Therefore, human-body mimicking objects, so-called phantoms, are used to stabilize and standardize these measurements \cite{Chahat2013}. 
 %Apart from research on radio propagation near the body, the design of antennas for WBAN applications is an active research topic \cite{Zhang2021,Mahmood2020,Hong2016,Tak2016,Verbiest2006}.
 
-It is envisioned that future communication systems, including sixth generation (6G) wireless networks, will be important for the realization of WBANs \cite{Cornet2022}, for example in applications such as wireless prosthetics where large data rates need to be achieve over relatively short separation distances \cite{Proesmans2022}.
+It is envisioned that future communication systems, including sixth generation (6G) wireless networks, will be important for the realization of WBANs \cite{Cornet2022}, for example in applications such as wireless prosthetics where large data rates are required over separation distances below 20~cm \cite{Proesmans2022}.
 These future communication systems may use frequencies above 100~GHz, such as the D-band with frequencies ranging from 110 to 170~GHz.
 D-band channel models are available for indoor \cite{DeBeelde2021_access, Pometcu2020} and outdoor \cite{DeBeelde2022_tap,DeBeelde2022_wcl} environments. 
 In this letter, we present an on-body PL model for D-band frequencies. 
-For the first time, on-phantom PL measurements are performed above 100~GHz with the goal to characterize the radio channel for short-range high-data rate wireless communication in WBANs.
-Compared to the existing D-band channel models, not only is the presence of the skin near the Line-of-Sight (LOS) path important, but the antenna separation is limited as well. 
+For the first time, on-phantom PL measurements are performed above 100~GHz to characterize the radio channel for short-range high-data rate wireless communication in WBANs.
+Compared to the existing D-band channel models, not only is the presence of the skin near the Line-of-Sight (LOS) path important but the antenna separation is limited as well. 
 
 % The outline of this letter is as follows.
 % Section~\ref{sect:method} provides the measurement setup and scenarios. 
@@ -68,7 +68,7 @@ Compared to the existing D-band channel models, not only is the presence of the 
 \section{Methodology \label{sect:method}}
 
 A vector network analyzer (VNA) with frequency extenders is used to perform D-band channel measurements for antenna separations up to 19~cm, with a skin phantom positioned between the antennas.
-In the remainder of this letter, we will refer to on-body PL measuremements when the skin phantom is present near the antennas. 
+In the remainder of this letter, we will refer to on-body PL measurements when the skin phantom is present near the antennas. 
 This measurement setup is presented in Fig.~\ref{fig:sounder_setup}.
 \begin{figure}[tb]
 \begin{center}
@@ -120,7 +120,7 @@ A low-cost tissue-equivalent phantom emulating the dielectric properties of huma
 The phantom measures 20 by 15~cm with a thickness of 15~mm and is composed of 69.3\% de-ionized water, 29.7\% gelatin powder, and $\sim$1\% agar-agar~\cite{aminzadeh2014_ELetters}. 
 The choice of a gelatin-based phantom was motivated by the fact that gelatin is mainly made of collagen, i.e., the main constituent of dry matter in the skin. 
 This phantom was characterized for frequencies up to 40~GHz. 
-A similar phantom with only 1.4\% increased mass of gelatin powder~\cite{aminzadeh2017_awpl} was shown to mimick the skin's dielectric properties up to 100~GHz. 
+A similar phantom with only 1.4\% increased mass of gelatin powder~\cite{aminzadeh2017_awpl} was shown to represent the skin's dielectric properties up to 100~GHz. 
 In~\cite{aminzadeh2014_thesis} an analytical model of the human skin with a water content of 70\%, i.e., similar to the phantom that we used, was validated with the measurement data in the literature $<$100~GHz and a maximum deviation of 10\% was reported. 
 In addition, it was shown that this deviation decreased for frequencies higher than 75~GHz.
 
@@ -149,7 +149,7 @@ First, the power of the first peak of the PDP of the reference measurements (wit
 \text{FSPL}(d,f)= 20 \log_{10} \left( 4 \pi d \frac{f}{\text{c}}\right)
 \label{eq:FSPL}
 \end{equation}
-The offset (cause by antenna gains and cable losses) is then added to the power of the first peak of the PDP of the on-body PL measurements. 
+The offset (caused by antenna gains and cable losses) is then added to the power of the first peak of the PDP of the on-body PL measurements. 
 This is represented in (\ref{eq:WB-PL}), in which the first term is the peak of the PDP of the on-body measurements (positive value), and the second term is the offset between the peak the PDP of the reference measurements and FSPL.
 \begin{multline}
 \text{PL} = - \text{max}(\text{PDP})  + (\text{FSPL}(1.5 \text{m}, 140\cdot10^9 \text{Hz}) \\ + \text{max}(\text{PDP}_\text{ref, 1.5m}) )
@@ -186,7 +186,7 @@ The measured PL is higher than FSPL, and the highest PL is measured for the lowe
 Moreover, the measured PL for horizontal co-polarized antennas (HH) is higher than for vertically polarized antennas (VV).
 The values for $\beta$ and $\gamma$ are low compared to the higher PL exponents ranging from 2 to 5 that are reported at millimeter-wave frequencies \cite{Petrillo2014, Aminzadeh2021_tap}. 
 This is explained by the small antenna separations at which near-field effects need to be considered, whereas, the PL calculation in (\ref{eq:PL}) considers the far-field antenna gain.
-Therefore, high PL values are obtained for smaller distances, which results in the smaller slope, i.e., a high reference PL $\alpha$ and low fitted values for $\beta$ and $\gamma$.
+Therefore, high PL values are obtained for smaller distances, which results in a smaller slope, i.e., a high reference PL $\alpha$ and low fitted values for $\beta$ and $\gamma$.
 
 \begin{figure}[t]
 \begin{center}
@@ -279,7 +279,7 @@ In this letter, an on-body measurement campaign is presented at D-band frequenci
 The influence of distance, frequency, antenna height above the skin phantom, and polarization are investigated.
 With an increased frequency, and using waveguide-based antennas, the far-field distance of the antennas increases. 
 At small antenna separations, the antennas do not radiate efficiently and the boundary conditions on the phantom cause adverse propagation conditions, resulting in a high measured path loss. 
-Furthermore, when the antennas are placed above a skin, the boundary conditions are unfavorable for H-polarization due to current cancelation, and the mirror-effect can cause interference in the V-polarization.
+Furthermore, when the antennas are placed above a skin, the boundary conditions are unfavorable for H-polarization due to current cancelation, and the mirror effect can cause interference in the V-polarization.
 Both effects result in a path loss model with a high reference path loss and low path loss exponent.
 The PL is higher when the height above the phantom is lower, and for a horizontally co-polarized antenna setup. 
 The latter can be caused by the larger half-power beamwidth of the antennas in the H-plane.
