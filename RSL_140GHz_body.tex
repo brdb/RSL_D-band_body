@@ -8,7 +8,7 @@
 % Submissions to RSL must use the default class option [manuscript].
 % At other stages the [preprint] option can be handy.
 %
-\documentclass[preprint]{rsl}
+\documentclass[manuscript]{rsl}
 %\documentclass{rsl}
 
 %
@@ -72,7 +72,7 @@ In the remainder of this letter, we will refer to on-body PL measurements when t
 This measurement setup is presented in Fig.~\ref{fig:sounder_setup}.
 \begin{figure}[tb]
 \begin{center}
-	\includegraphics[width=0.45\textwidth]{figures/measurement_setup}
+	\includegraphics[width=0.95\textwidth]{figures/measurement_setup}
 \caption{The measurement setup with a vector network analyzer (VNA)-based channel sounder.}
 \label{fig:sounder_setup}
 \end{center}
@@ -86,11 +86,12 @@ The VNA-based channel sounder that is presented and validated in \cite{DeBeelde2
 Quinstar standard gain pyramidal horn antennas type QWH-DPRR00 are connected to the rectangular waveguides (WR-6) of the frequency extenders. 
 The antennas are operational in the D-band and have a gain increasing from 22.2~dBi for 110~GHz to 23.3~dBi for 170~GHz
 The antennas have an H-plane half power beam width (HPBW) ranging from 13.2$^{\circ}$ at 110~GHz to 12$^{\circ}$ at 170~GHz and an E-plane HPBW ranging from 12$^{\circ}$ at 110~GHz to 8.8$^{\circ}$ at 170~GHz. 
-The Fraunhofer far-field distance $d_F$ of these antennas, calculated via (\ref{eq:Fraunhofer}), equals 0.55~m at 170~GHz as $D$ is equal to 0.022~m and the wavelength $\lambda$ is 0.00176~m.
+The Fraunhofer far-field distance $d_F$ of these antennas, calculated via
 \begin{equation}
 \label{eq:Fraunhofer}
-d_F = \frac{2 D^2}{\lambda}
+d_F = \frac{2 D^2}{\lambda}, 
 \end{equation}
+equals 0.55~m at 170~GHz as $D$ is equal to 0.022~m and the wavelength $\lambda$ is 0.00176~m.
 
 A frequency sweep is performed with 3001 frequency points and a frequency step size of 20~MHz. 
 The intermediate frequency (IF) measurement bandwidth (BW) of the VNA is set to 100~Hz. 
@@ -126,15 +127,16 @@ In addition, it was shown that this deviation decreased for frequencies higher t
 
 \subsection{Data processing}
 
-From the measured transfer function $H(f)$, PL (in dB) is obtained via (\ref{eq:PL}), with $N$ the number of frequency sweeps, $G_a(f)$ the frequency-dependent antenna gain and $C(f)$ a correction term based on the reference measurements \cite{DeBeelde2021_eucap}.
+From the measured transfer function $H(f)$, PL (in dB) is obtained via
 \begin{equation}
 \label{eq:PL}
-\text{PL}(f)= -10 \text{log}_{10} \left( \frac{1}{N} \sum_{i=1}^N | H_i(f) |^2 \right) + 2 G_a(f) + C(f)
+\text{PL}(f)= -10 \text{log}_{10} \left( \frac{1}{N} \sum_{i=1}^N | H_i(f) |^2 \right) + 2 G_a(f) + C(f), 
 \end{equation}
+with $N$ the number of frequency sweeps, $G_a(f)$ the frequency-dependent antenna gain and $C(f)$ a correction term based on the reference measurements \cite{DeBeelde2021_eucap}.
 After applying the Hann window $\mathcal{W}$, the inverse discrete Fourier transformation (IDFT) of the transfer function $H(f)$ results in the channel impulse response (CIR) from which the averaged power delay profile (PDP) is found. 
-This is mathematically presented in (\ref{eq:PDP}).
+This is mathematically formulated as
 \begin{equation}
-\text{PDP}(k\Delta\tau) = \frac{1}{N} \sum_{i=1}^N | \text{IDFT}(\mathcal{W}(f) \cdot H_i(f)) |^2
+\text{PDP}(k\Delta\tau) = \frac{1}{N} \sum_{i=1}^N | \text{IDFT}(\mathcal{W}(f) \cdot H_i(f)) |^2.
 \label{eq:PDP}
 \end{equation}
 %The temporal resolution of the PDP $\Delta\tau$ is XX~ns, and the maximum resolvable time domain is XX~ns.
@@ -144,34 +146,38 @@ This is mathematically presented in (\ref{eq:PDP}).
 %\label{eq:DS}
 %\end{equation}
 From the PDP, wideband on-body PL is obtained. 
-First, the power of the first peak of the PDP of the reference measurements (with an antenna separation of 1.5~m) is compared to free space PL (FSPL), calculated via (\ref{eq:FSPL}), with $d$ the distance in meters, $f$ the frequency in Hz, and c the speed of light. 
+First, the power of the first peak of the PDP of the reference measurements (with an antenna separation of 1.5~m) is compared to free space PL (FSPL), calculated via 
 \begin{equation}
-\text{FSPL}(d,f)= 20 \log_{10} \left( 4 \pi d \frac{f}{\text{c}}\right)
+\text{FSPL}(d,f)= 20 \log_{10} \left( 4 \pi d \frac{f}{\text{c}}\right), 
 \label{eq:FSPL}
 \end{equation}
+with $d$ the distance in meters, $f$ the frequency in Hz, and c the speed of light. 
 The offset (caused by antenna gains and cable losses) is then added to the power of the first peak of the PDP of the on-body PL measurements. 
-This is represented in (\ref{eq:WB-PL}), in which the first term is the peak of the PDP of the on-body measurements (positive value), and the second term is the offset between the peak the PDP of the reference measurements and FSPL.
+This is represented via
 \begin{multline}
-\text{PL} = - \text{max}(\text{PDP})  + (\text{FSPL}(1.5 \text{m}, 140\cdot10^9 \text{Hz}) \\ + \text{max}(\text{PDP}_\text{ref, 1.5m}) )
+\text{PL} = - \text{max}(\text{PDP})  + (\text{FSPL}(1.5 \text{m}, 140\cdot10^9 \text{Hz}) \\ + \text{max}(\text{PDP}_\text{ref, 1.5m}) ),
 \label{eq:WB-PL}
 \end{multline}
+in which the first term is the peak of the PDP of the on-body measurements (positive value), and the second term is the offset between the peak the PDP of the reference measurements and FSPL.
 
 \subsection{Path loss models}
 
-Measured PL as a function of frequency, obtained via (\ref{eq:PL}), is fitted to the alpha-beta-gamma (ABG) model from (\ref{eq:ABG}), with $d$ the distance in m, d$_0$ the reference distance, $f$ the frequency in GHz, and f$_0$ the reference frequency.  
-In this work, a reference distance d$_0$ of 1~cm and a reference frequency f$_0$ of 1~GHz are selected.
-The model parameter $\alpha$ is the floating intercept in dB, i.e., the PL for distance d$_0$ at frequency f$_0$, $\beta$ is the dimensionless PL exponent, $\gamma$ is the dependence of PL on frequency, and $\chi_{\sigma}$ is the shadow fading term in dB \cite{Salous2020}. 
+Measured PL as a function of frequency, obtained via (\ref{eq:PL}), is fitted to the alpha-beta-gamma (ABG) model
 \begin{multline}
-  \text{PL}_{\text{ABG}}(d,f) = \alpha + 10 \beta \log_{10}\left(\frac{d}{\text{d}_0}\right) \\ + 10 \gamma \log_{10}\left(\frac{f}{ \text{f}_0}\right) + \chi_{\sigma}
+  \text{PL}_{\text{ABG}}(d,f) = \alpha + 10 \beta \log_{10}\left(\frac{d}{\text{d}_0}\right) \\ + 10 \gamma \log_{10}\left(\frac{f}{ \text{f}_0}\right) + \chi_{\sigma},
   \label{eq:ABG}
 \end{multline}
+with $d$ the distance in m, d$_0$ the reference distance, $f$ the frequency in GHz, and f$_0$ the reference frequency.  
+In this work, a reference distance d$_0$ of 1~cm and a reference frequency f$_0$ of 1~GHz are selected.
+The model parameter $\alpha$ is the floating intercept in dB, i.e., the PL for distance d$_0$ at frequency f$_0$, $\beta$ is the dimensionless PL exponent, $\gamma$ is the dependence of PL on frequency, and $\chi_{\sigma}$ is the shadow fading term in dB \cite{Salous2020}. 
 
-Wideband PL, obtained via (\ref{eq:WB-PL}), is fitted to the floating-intercept (FI) PL model from (\ref{eq:FI}), with $d$ the distance in m, d$_0$ the reference distance of 1~cm and PL exponent n. 
-The shadow fading term $\chi_\sigma$ in dB is again based on a zero-mean normal distribution with standard deviation $\sigma$. 
+Wideband PL, obtained via (\ref{eq:WB-PL}), is fitted to the floating-intercept (FI) PL model 
 \begin{equation}
-  \text{PL}_{\text{FI}}(d) = \text{PL}_0 + 10 \text{n} \log_{10} (d/\text{d}_0) + \chi_\sigma
+  \text{PL}_{\text{FI}}(d) = \text{PL}_0 + 10 \text{n} \log_{10} (d/\text{d}_0) + \chi_\sigma, 
   \label{eq:FI}
 \end{equation}
+with $d$ the distance in m, d$_0$ the reference distance of 1~cm and PL exponent n. 
+The shadow fading term $\chi_\sigma$ in dB is again based on a zero-mean normal distribution with standard deviation $\sigma$. 
 
 \section{Results and discussion\label{sect:results}}
 
@@ -190,7 +196,7 @@ Therefore, high PL values are obtained for smaller distances, which results in a
 
 \begin{figure}[t]
 \begin{center}
-  \includegraphics[width=0.45\textwidth]{figures/PL_vs_freq}
+  \includegraphics[width=0.95\textwidth]{figures/PL_vs_freq}
 \caption{Measured path loss (PL) as a function of frequency for an antenna height of 1~mm above the skin phantom, antenna separations 10 and 19~cm, and vertical (VV) and horizontal (HH) co-polarizations.}
 \label{fig:PL_vs_freq}
 \end{center}
@@ -218,7 +224,7 @@ Figure~\ref{fig:PDP} shows the PDP for some select measurement scenarios.
 It is clear that round-trip reflections, i.e., reflections on the TX and RX antennas, are present.
 \begin{figure}[tb]
 \begin{center}
-	\includegraphics[width=0.45\textwidth]{figures/PDP.png}
+	\includegraphics[width=0.95\textwidth]{figures/PDP.png}
 \caption{Measured power delay profile (PDP) for different antenna separations and polarizations, with the antennas placed at 1~mm above the skin phantom.}
 \label{fig:PDP}
 \end{center}
@@ -229,11 +235,11 @@ Wideband PL is obtained by selecting the power of the first peak and converting 
 The measured PL as a function of distance is shown in Fig.~\ref{fig:PL_vs_dist}. 
 \begin{figure}[tb]
 \begin{center}
-	\includegraphics[width=0.45\textwidth]{figures/PL_vs_dist_VV}
+	\includegraphics[width=0.95\textwidth]{figures/PL_vs_dist_VV}
 	\\
 	(a) VV
 	\\
-	\includegraphics[width=0.45\textwidth]{figures/PL_vs_dist_HH}
+	\includegraphics[width=0.95\textwidth]{figures/PL_vs_dist_HH}
 	\\
 	(b) HH
 \caption{Measured wideband PL as a function of distance for different antenna heights.}
