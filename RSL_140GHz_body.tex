@@ -178,25 +178,24 @@ The shadow fading term $\chi_\sigma$ in dB is again based on a zero-mean normal 
 \subsection{Frequency-dependent path loss}
 
 Figure~\ref{fig:PL_vs_freq} visualizes measured PL as a function of frequency for two polarizations and two distances, with an antenna height of 1~mm.
-\begin{figure}[b!]
+Fitting the measurement data to the ABG model from (\ref{eq:ABG}) results in the fitted parameters listed in Table~\ref{table:ABG}. 
+Both the PL exponent $\beta$ and frequency-dependence $\gamma$ are smaller than the free space value of 2. 
+The p-values of all fitted parameters are below the significance level of 10$^{-3}$. 
+
+The measured PL is higher than FSPL, and the highest PL is measured for the lowest height of 1~mm above the skin phantom.
+Moreover, the measured PL for horizontal co-polarized antennas (HH) is higher than for vertically polarized antennas (VV).
+The values for $\beta$ and $\gamma$ are low compared to the higher PL exponents ranging from 2 to 5 that are reported at millimeter-wave frequencies \cite{Petrillo2014, Aminzadeh2021_tap}. 
+This is explained by the small antenna separations at which near-field effects need to be considered, whereas, the PL calculation in (\ref{eq:PL}) considers the far-field antenna gain.
+Therefore, high PL values are obtained for smaller distances, which results in the smaller slope, i.e., a high reference PL $\alpha$ and low fitted values for $\beta$ and $\gamma$.
+
+\begin{figure}[t]
 \begin{center}
   \includegraphics[width=0.45\textwidth]{figures/PL_vs_freq}
 \caption{Measured path loss (PL) as a function of frequency for an antenna height of 1~mm above the skin phantom, antenna separations 10 and 19~cm, and vertical (VV) and horizontal (HH) co-polarizations.}
 \label{fig:PL_vs_freq}
 \end{center}
 \end{figure}
-The measured PL is higher than FSPL, due to absorption of radiated electromagnetic power by the skin phantom.
-The highest PL is measured for the lowest height of 1~mm above the skin phantom.
-Moreover, measured PL for horizontal co-polarized antennas (HH) is higher than for vertically polarized antennas (VV).
-This is in line with the HPBW of the used antennas; the H-plane HPBW is larger than the E-plane HPBW and therefore, more radiated power is absorbed by the phantom in the horizontal co-polarized antenna setup.
-
-Fitting the measurement data to the ABG model from (\ref{eq:ABG}) results in the fitted parameters listed in Table~\ref{table:ABG}. 
-Both the PL exponent $\beta$ and frequency-dependence $\gamma$ are smaller than the free space value of 2. 
-The p-values of all fitted parameters are below the significance level of 10$^{-3}$. 
-Two aspects explain the low values for $\beta$ and $\gamma$, compared to the higher PL exponents ranging from 2 to 5 that are reported at millimeter-wave frequencies \cite{Petrillo2014, Aminzadeh2021_tap}. 
-First, measurements are performed for very small antenna separations at which near-field effects need to be considered, whereas, the PL calculation in (\ref{eq:PL}) considers the far-field antenna gain.
-Therefore, high PL values are obtained for smaller distances, which results in the smaller slope, i.e., a high reference PL $\alpha$ and low fitted values for $\beta$ and $\gamma$.
-\begin{table}[tb]
+\begin{table}[t]
   \caption{Fitted parameters of the ABG model for different polarizations (P) and antenna heights (H) above the skin phantom.}
   \label{table:ABG}
   \begin{center}
@@ -217,15 +216,14 @@ Therefore, high PL values are obtained for smaller distances, which results in t
 
 Figure~\ref{fig:PDP} shows the PDP for some select measurement scenarios. 
 It is clear that round-trip reflections, i.e., reflections on the TX and RX antennas, are present.
-These reflections cause a pulse to spread in time.
-\begin{figure}[b!]
+\begin{figure}[tb]
 \begin{center}
-	\includegraphics[width=0.45\textwidth]{figures/PDP}
+	\includegraphics[width=0.45\textwidth]{figures/PDP.png}
 \caption{Measured power delay profile (PDP) for different antenna separations and polarizations, with the antennas placed at 1~mm above the skin phantom.}
 \label{fig:PDP}
 \end{center}
 \end{figure}
-The reflections on the skin phantom cannot be resolved in the PDP, as the direct and reflected path lengths differ by less than 5~mm.
+The reflections on the skin phantom cannot be resolved as the direct and reflected path lengths differ by less than 5~mm.
 
 Wideband PL is obtained by selecting the power of the first peak and converting it into PL via (\ref{eq:WB-PL}). 
 The measured PL as a function of distance is shown in Fig.~\ref{fig:PL_vs_dist}. 
@@ -242,21 +240,29 @@ The measured PL as a function of distance is shown in Fig.~\ref{fig:PL_vs_dist}.
 \label{fig:PL_vs_dist}
 \end{center}
 \end{figure}
-From this figure, the small distance-dependence of PL is clear, which is in line with the low PL exponent $\beta$ from Table~\ref{table:ABG}.
-Table~\ref{table:FI} lists the fitted parameters of the FI PL model from (\ref{eq:FI}).
-In this case, the p-value of the PL exponent for VV polarization and antenna heights of 1 and 3~mm is above the 0.05 threshold.
+From this figure, the high PL for small distances is clear, which results in the low PL exponent $\beta$ from Table~\ref{table:ABG}.
+When fitting all PL samples to the FI model from (\ref{eq:FI}), similar PL exponents are obtained. 
+Table~\ref{table:FI} lists the fitted parameters of the FI PL model when only antenna separations ranging from 10 to 19~cm are considered.
 \begin{table}[tb]
-  \caption{Fitted parameters of the FI model for different polarizations (P) and antenna heights (H) above the skin phantom.}
+  \caption{Fitted parameters of the FI model for different polarizations (P) and antenna heights (H) above the skin phantom for distances from 10 to 19~cm.}
   \label{table:FI}
   \begin{center}
     \begin{tabular}{cc|cccc}
       P & H [mm] & PL$_0$ & n& RMSE \\
       \hline
-      VV & 1 & 61.1 dB & 0.25 & 3.0~dB \\
+      % distance 1 to 19 cm
+      % VV & 1 & 61.1 dB & 0.25 & 3.0~dB \\
+      % VV & 3 & 56.6 dB & 0.65 & 2.6~dB \\
+      % VV & 6 & 56.5 dB & 0.60 & 0.9~dB \\
+      % HH & 1 & 37.3 dB & 3.04 & 2.2~dB \\
+      % HH & 3 & 54.8 dB & 0.72 & 2.0~dB \\
+      % HH & 6 & 55.3~dB & 0.67 & 1.4~dB \\
+      % distance 10 to 19 cm
+      VV & 1 & 27.7 dB & 3.14 & 1.8~dB \\
       VV & 3 & 56.6 dB & 0.65 & 2.6~dB \\
-      VV & 6 & 56.5 dB & 0.60 & 0.9~dB \\
-      HH & 1 & 37.3 dB & 3.04 & 2.2~dB \\
-      HH & 3 & 54.8 dB & 0.72 & 2.0~dB \\
+      VV & 6 & 49.2 dB & 1.23 & 0.9~dB \\
+      HH & 1 & 23.5 dB & 4.24 & 0.6~dB \\
+      HH & 3 & 50.5 dB & 1.17 & 0.7~dB \\
       HH & 6 & 55.3~dB & 0.67 & 1.4~dB \\
     \end{tabular}
   \end{center}
@@ -271,11 +277,13 @@ PL is lower when the antennas are placed at a higher height above the skin phant
 
 In this letter, an on-body measurement campaign is presented at D-band frequencies, ranging from 110 to 170~GHz. 
 The influence of distance, frequency, antenna height above the skin phantom, and polarization are investigated.
-With an increased frequency, and using waveguide-based antennas, the far-field distance of the antennas increases, and the antennas do not radiate efficiently at small antenna separations, resulting in a high measured path loss. 
-Furthermore, when the antennas are placed above a skin, the boundary conditions are unfavorable for H-polarization due to current cancelation, and the mirror-effect can case interference in the V-polarization.
+With an increased frequency, and using waveguide-based antennas, the far-field distance of the antennas increases. 
+At small antenna separations, the antennas do not radiate efficiently and the boundary conditions on the phantom cause adverse propagation conditions, resulting in a high measured path loss. 
+Furthermore, when the antennas are placed above a skin, the boundary conditions are unfavorable for H-polarization due to current cancelation, and the mirror-effect can cause interference in the V-polarization.
 Both effects result in a path loss model with a high reference path loss and low path loss exponent.
 The PL is higher when the height above the phantom is lower, and for a horizontally co-polarized antenna setup. 
-The latter is caused by the larger half-power beamwidth of the antennas in the H-plane.
+The latter can be caused by the larger half-power beamwidth of the antennas in the H-plane.
+The PL exponent is similar to values reported in literature when only antenna separations above 10~cm are considered.
 
 Future work includes the characterization of the skin phantom at D-band frequencies and the validation of the PL models on a real human body, also taking into account antenna mismatch, e.g., caused by wrist rotation.
 Furthermore, a joint antenna and channel model is required, i.e., the antenna and channel characteristics need to be evaluated jointly as the antenna cannot be de-embedded from the measurements via the characteristics that are typically presented in the datasheet.
