@@ -20,7 +20,7 @@
 % Use explicit line-breaks \\ if needed and note that the affiliations are
 % at the end of the manuscript.
 %
-\title{On-Body Path Loss Modeling at D-Band Frequencies}
+\title{On-Body Path Loss Modeling in the 110 to 170~GHz Range}
 \author{Brecht De Beelde,
 Reza~Aminzadeh,
 Arno~Thielens,
@@ -67,12 +67,13 @@ Compared to the existing D-band models, not only is the presence of the skin nea
 
 \section{Methodology \label{sect:method}}
 
-A vector network analyzer (VNA) with frequency extenders is used to perform D-band channel measurements for antenna separations up to 19~cm, with a skin phantom positioned between the antennas. 
+A vector network analyzer (VNA) with frequency extenders is used to perform D-band channel measurements for antenna separations up to 19~cm, with a skin phantom positioned between the antennas.
+In the remainder of this letter, we will refer to on-body PL measuremements when the skin phantom is present near the antennas. 
 This measurement setup is presented in Fig.~\ref{fig:sounder_setup}.
 \begin{figure}[tb]
 \begin{center}
 	\includegraphics[width=0.45\textwidth]{figures/measurement_setup}
-\caption{Picture of the measurement setup with a vector network analyzer (VNA)-based channel sounder.}
+\caption{The measurement setup with a vector network analyzer (VNA)-based channel sounder.}
 \label{fig:sounder_setup}
 \end{center}
 \end{figure}
@@ -118,7 +119,13 @@ Measurements were performed with both horizontal (HH) and vertical (VV) co-polar
 
 \subsection{Skin phantom}
 
-A low-cost tissue-equivalent phantom emulating the dielectric properties of human skin in the D-band was used. The phantom is composed of 69.3\% de-ionized water and 29.7\% gelatin powder and $\sim$1\% agar-agar~\cite{aminzadeh2014_ELetters}. The choice of a gelatin-based phantom was motivated by the fact that gelatin is mainly made of collagen (the main constituent of dry matter in the skin). This phantom was presented for the first time in~\cite{aminzadeh2014_ELetters} and was measured at frequencies up to 40~GHz. Compared to the phantom in~\cite{aminzadeh2014_ELetters}, a similar phantom with only 1.4\% increased mass of gelatin powder~\cite{aminzadeh2017_awpl} was shown to mimick the skin's dielectric properties up to 100~GHz. In~\cite{aminzadeh2014_thesis} an analytical model of human skin with a water content of 70\% (similar to the phantom that we used) was validated with the measurement data in the literature $<$100~GHz and a maximum deviation of 10\% was reported. In addition, it was shown that for frequencies higher than 75~GHz this deviation decreased.
+A low-cost tissue-equivalent phantom emulating the dielectric properties of human skin in the D-band was used. 
+The phantom measures 20 by 15~cm with a thickness of 15~mm and is composed of 69.3\% de-ionized water, 29.7\% gelatin powder and $\sim$1\% agar-agar~\cite{aminzadeh2014_ELetters}. 
+The choice of a gelatin-based phantom was motivated by the fact that gelatin is mainly made of collagen, i.e., the main constituent of dry matter in the skin. 
+This phantom was presented for the first time in~\cite{aminzadeh2014_ELetters} and was measured at frequencies up to 40~GHz. 
+Compared to the phantom in~\cite{aminzadeh2014_ELetters}, a similar phantom with only 1.4\% increased mass of gelatin powder~\cite{aminzadeh2017_awpl} was shown to mimick the skin's dielectric properties up to 100~GHz. 
+In~\cite{aminzadeh2014_thesis} an analytical model of human skin with a water content of 70\% (similar to the phantom that we used) was validated with the measurement data in the literature $<$100~GHz and a maximum deviation of 10\% was reported. 
+In addition, it was shown that for frequencies higher than 75~GHz this deviation decreased.
 
 \subsection{Data processing}
 
@@ -273,7 +280,7 @@ Both effects result in a path loss model with a high reference path loss and low
 The PL is higher when the height above the phantom is lower, and for a horizontally co-polarized antenna setup. 
 The latter is caused by the larger half-power beamwidth of the antennas in the H-plane.
 
-Future work includes the validation of the PL models on a real human body and taking into account antenna mismatch, e.g., caused by wrist rotation.
+Future work includes the characterization of the skin phantom at D-band frequencies and the validation of the PL models on a real human body, also taking into account antenna mismatch, e.g., caused by wrist rotation.
 Furthermore, a joint antenna and channel model is required, i.e., the antenna and channel characteristics need to be evaluated jointly as the antenna cannot be de-embedded from the measurements via the characteristics that are typically presented in the datasheet.
 
 \section{Acknowledgment}
