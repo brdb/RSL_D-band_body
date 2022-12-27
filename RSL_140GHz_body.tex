@@ -20,7 +20,7 @@
 % Use explicit line-breaks \\ if needed and note that the affiliations are
 % at the end of the manuscript.
 %
-\title{On-Body Path Loss Modeling in the 110 to 170~GHz Range}
+\title{On-Body Path Loss Modeling\\ in the 110 to 170~GHz Frequency Range}
 \author{Brecht De Beelde,
 Reza~Aminzadeh,
 Arno~Thielens,
@@ -41,24 +41,25 @@ PL is measured for distances ranging from 1 to 19~cm using a vector network anal
 The measured PL is fitted to an alpha-beta-gamma model, and wideband PL is fitted to a floating-intercept model.
 Both models have a high reference PL and low PL exponent below 1. 
 Even though the frequency dependence is small, PL increases with frequency. 
-When the antennas are closer to the skin phantom, more electromagnetic power is absorbed by the phantom which results in a higher PL.
+The measured PL is higher when the antennas are closer to the skin phantom.
 \end{abstract}
 
 \section{Introduction\label{sect:intro}}
 
-In the last decade, the domain of personal area networks (PAN) has evolved into wireless body area networks (WBANs), where sensor and actuator nodes in and on the body  wirelessly transmit data to eachother \cite{Patel2010,Reusens2009} or off the body \cite{Marinova2015}. 
-Numerous channel models for WBANs at frequencies below 10~GHz are available \cite{VanRoy2010,Qaraqe2014} and WBANs operational at millimeter-wave frequencies are being deployed, e.g., using the 60~GHz industrial, scientific, and medical (ISM) frequency band \cite{Chahat2013,Petrillo2014,Aminzadeh2021_tap}, and the W-band around 94 GHz \cite{Brizzi2013,Ali2022}.
+In the last decade, the domain of personal area networks (PAN) has evolved into wireless body area networks (WBANs), where sensor and actuator nodes in and on the body  wirelessly transmit data to eachother \cite{Patel2010} or off the body \cite{Marinova2015}. 
+Numerous channel models for WBANs at frequencies below 10~GHz are available \cite{VanRoy2010} and WBANs operational at millimeter-wave frequencies are being deployed, e.g., in the V-band at 60~GHz \cite{Chahat2013,Petrillo2014,Aminzadeh2021_tap}, and the W-band around 94 GHz \cite{Brizzi2013,Ali2022}.
 
-On-body PL is generally studied using three approaches: theoretically \cite{Chahat2013,Petrillo2014}, numerically \cite{Reusens2009}, and using measurements \cite{Chahat2013,Reusens2009,Aminzadeh2021_tap}. 
+On-body path loss (PL) is generally studied using three approaches: theoretically \cite{Chahat2013,Petrillo2014}, numerically \cite{Reusens2009}, and using measurements \cite{Chahat2013,Reusens2009,Aminzadeh2021_tap}. 
 On-body measurements have the disadvantages that they introduce subject-to-subject variation \cite{Proesmans2022} and that it is difficult for a subject to remain immobile. 
 Therefore, human-body mimicking objects, so-called phantoms, are used to stabilize and standardize these measurements \cite{Chahat2013}. 
-Apart from research on radio propagation near the body, the design of antennas for WBAN applications is an active research topic \cite{Zhang2021,Mahmood2020,Hong2016,Tak2016,Verbiest2006}.
+%Apart from research on radio propagation near the body, the design of antennas for WBAN applications is an active research topic \cite{Zhang2021,Mahmood2020,Hong2016,Tak2016,Verbiest2006}.
+
 It is envisioned that future communication systems, including sixth generation (6G) wireless networks, will be important for the realization of WBANs \cite{Cornet2022}, for example in applications such as wireless prosthetics where large data rates need to be achieve over relatively short separation distances \cite{Proesmans2022}.
 These future communication systems may use frequencies above 100~GHz, such as the D-band with frequencies ranging from 110 to 170~GHz.
 D-band channel models are available for indoor \cite{DeBeelde2021_access, Pometcu2020} and outdoor \cite{DeBeelde2022_tap,DeBeelde2022_wcl} environments. 
-In this work, we present an on-body path loss (PL) model for D-band frequencies. 
+In this letter, we present an on-body PL model for D-band frequencies. 
 For the first time, on-phantom PL measurements are performed above 100~GHz with the goal to characterize the radio channel for short-range high-data rate wireless communication in WBANs.
-Compared to the existing D-band models, not only is the presence of the skin near the Line-of-Sight (LOS) path important, but the antenna separation limited as well. 
+Compared to the existing D-band channel models, not only is the presence of the skin near the Line-of-Sight (LOS) path important, but the antenna separation is limited as well. 
 
 
 % The outline of this letter is as follows.
