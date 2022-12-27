@@ -61,7 +61,6 @@ In this letter, we present an on-body PL model for D-band frequencies.
 For the first time, on-phantom PL measurements are performed above 100~GHz with the goal to characterize the radio channel for short-range high-data rate wireless communication in WBANs.
 Compared to the existing D-band channel models, not only is the presence of the skin near the Line-of-Sight (LOS) path important, but the antenna separation is limited as well. 
 
-
 % The outline of this letter is as follows.
 % Section~\ref{sect:method} provides the measurement setup and scenarios. 
 % Section~\ref{sect:results} provides the measurement results and path loss models, and Section~\ref{sect:conclusion} concludes this letter.
@@ -81,12 +80,11 @@ This measurement setup is presented in Fig.~\ref{fig:sounder_setup}.
 
 \subsection{Channel sounder}
 
-The VNA generates a radio frequency (RF) source input that is multiplied via frequency multiplication using an external frequency up-converter, which results in an RF output in the frequency range 110 to 170~GHz. 
-A harmonic mixer with a multiplication factor of 10 and a local oscillator (LO) input in the frequency range 11 to 17~GHz are used for down-conversion to generate a reference signal for the VNA. 
-A standard gain pyramidal horn antenna with a gain increasing from 22.2~dBi for 110~GHz  to 23.3~dBi for 170~GHz is connected to the frequency converter's WR-6 waveguide and transmits the D-band signal.
-At the receiver side, an identical antenna captures the received signal, which is down-converted using the harmonic mixer of the frequency down-converter that uses the same LO input. 
-The down-converted signal is sent to the measurement port of the VNA. 
-The VNA measures the phase and amplitude difference between the reference signal at port 1 and the measured signal at port 2.
+The VNA-based channel sounder that is presented and validated in \cite{DeBeelde2021_eucap} is used for the channel measurements.
+%The VNA generates a radio frequency (RF) source input that is multiplied via frequency multiplication using an external frequency up-converter, which results in an RF output in the frequency range 110 to 170~GHz. 
+%A harmonic mixer with a multiplication factor of 10 and a local oscillator (LO) input in the frequency range 11 to 17~GHz are used for down-conversion to generate a reference signal for the VNA. 
+Quinstar standard gain pyramidal horn antennas type QWH-DPRR00 are connected to the rectangular waveguides (WR-6) of the frequency extenders. 
+The antennas are operational in the D-band and have a gain increasing from 22.2~dBi for 110~GHz to 23.3~dBi for 170~GHz
 The antennas have an H-plane half power beam width (HPBW) ranging from 13.2$^{\circ}$ at 110~GHz to 12$^{\circ}$ at 170~GHz and an E-plane HPBW ranging from 12$^{\circ}$ at 110~GHz to 8.8$^{\circ}$ at 170~GHz. 
 The Fraunhofer far-field distance $d_F$ of these antennas, calculated via (\ref{eq:Fraunhofer}), equals 0.55~m at 170~GHz as $D$ is equal to 0.022~m and the wavelength $\lambda$ is 0.00176~m.
 \begin{equation}
@@ -97,21 +95,19 @@ d_F = \frac{2 D^2}{\lambda}
 A frequency sweep is performed with 3001 frequency points and a frequency step size of 20~MHz. 
 The intermediate frequency (IF) measurement bandwidth (BW) of the VNA is set to 100~Hz. 
 The output power is set to 16 dBm.
-A normalized forward calibration is performed before all measurements, with the converters' WR-6 waveguides as the reference plane of the calibration. 
+A normalized forward calibration is performed before all measurements, with the frequency extenders' waveguides as the reference plane of the calibration. 
 No averaging is performed on the VNA, but each measurement is performed three times.
 The VNA's sweep time is 45~s during which the channel is assumed to be static, as no people were moving during the measurements. 
 
 The IF BW and transmit power settings result in a dynamic range of the sounder of 95~dB.
 Due to the high bandwidth, a high temporal resolution $\Delta\tau$ of 0.0167~ns is obtained.
 The maximum resolvable time delay of 50~ns corresponds to a path length of 15~m.
-The validation of the channel sounder is presented in previous work \cite{DeBeelde2021_eucap}. 
 
 \subsection{Measurement scenarios}
 
-Before the on-body measurements, reference measurements were performed. 
+Before the on-body measurements, reference measurements were performed and used to evaluate antenna gains, cable losses, and conversion losses over the full band \cite{DeBeelde2021_eucap}. 
 The antenna separation during the reference measurements was 1.5~m, i.e., the antennas are in the far field, and no obstacles were present in between the antennas. 
-Absorbers were placed to limit the environmental influence.
-The reference measurements are used to evaluate antenna gains, cable losses, and conversion losses over the full band \cite{DeBeelde2021_eucap}. 
+%Absorbers were placed to limit the environmental influence. 
 
 For the on-body PL measurements, the antenna separation ranged from 1~cm to 19~cm, by moving the RX antenna away from the TX antenna in steps of 3~cm.
 A skin phantom was placed between the antennas. 
@@ -121,12 +117,12 @@ Measurements were performed with both horizontal (HH) and vertical (VV) co-polar
 \subsection{Skin phantom}
 
 A low-cost tissue-equivalent phantom emulating the dielectric properties of human skin in the D-band was used. 
-The phantom measures 20 by 15~cm with a thickness of 15~mm and is composed of 69.3\% de-ionized water, 29.7\% gelatin powder and $\sim$1\% agar-agar~\cite{aminzadeh2014_ELetters}. 
+The phantom measures 20 by 15~cm with a thickness of 15~mm and is composed of 69.3\% de-ionized water, 29.7\% gelatin powder, and $\sim$1\% agar-agar~\cite{aminzadeh2014_ELetters}. 
 The choice of a gelatin-based phantom was motivated by the fact that gelatin is mainly made of collagen, i.e., the main constituent of dry matter in the skin. 
-This phantom was presented for the first time in~\cite{aminzadeh2014_ELetters} and was measured at frequencies up to 40~GHz. 
-Compared to the phantom in~\cite{aminzadeh2014_ELetters}, a similar phantom with only 1.4\% increased mass of gelatin powder~\cite{aminzadeh2017_awpl} was shown to mimick the skin's dielectric properties up to 100~GHz. 
-In~\cite{aminzadeh2014_thesis} an analytical model of human skin with a water content of 70\% (similar to the phantom that we used) was validated with the measurement data in the literature $<$100~GHz and a maximum deviation of 10\% was reported. 
-In addition, it was shown that for frequencies higher than 75~GHz this deviation decreased.
+This phantom was characterized for frequencies up to 40~GHz. 
+A similar phantom with only 1.4\% increased mass of gelatin powder~\cite{aminzadeh2017_awpl} was shown to mimick the skin's dielectric properties up to 100~GHz. 
+In~\cite{aminzadeh2014_thesis} an analytical model of the human skin with a water content of 70\%, i.e., similar to the phantom that we used, was validated with the measurement data in the literature $<$100~GHz and a maximum deviation of 10\% was reported. 
+In addition, it was shown that this deviation decreased for frequencies higher than 75~GHz.
 
 \subsection{Data processing}
 
@@ -148,12 +144,12 @@ This is mathematically presented in (\ref{eq:PDP}).
 %\label{eq:DS}
 %\end{equation}
 From the PDP, wideband on-body PL is obtained. 
-First, the power of the first peak of the PDP of the reference measurements is compared to free space PL (FSPL), calculated via (\ref{eq:FSPL}), with $d$ the distance in meters, $f$ the frequency in Hz, and c the speed of light. 
+First, the power of the first peak of the PDP of the reference measurements (with an antenna separation of 1.5~m) is compared to free space PL (FSPL), calculated via (\ref{eq:FSPL}), with $d$ the distance in meters, $f$ the frequency in Hz, and c the speed of light. 
 \begin{equation}
 \text{FSPL}(d,f)= 20 \log_{10} \left( 4 \pi d \frac{f}{\text{c}}\right)
 \label{eq:FSPL}
 \end{equation}
-The offset is then added to the power of the first peak of the PDP of the on-body PL measurements. 
+The offset (cause by antenna gains and cable losses) is then added to the power of the first peak of the PDP of the on-body PL measurements. 
 This is represented in (\ref{eq:WB-PL}), in which the first term is the peak of the PDP of the on-body measurements (positive value), and the second term is the offset between the peak the PDP of the reference measurements and FSPL.
 \begin{multline}
 \text{PL} = - \text{max}(\text{PDP})  + (\text{FSPL}(1.5 \text{m}, 140\cdot10^9 \text{Hz}) \\ + \text{max}(\text{PDP}_\text{ref, 1.5m}) )
