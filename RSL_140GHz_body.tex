@@ -8,7 +8,7 @@
 % Submissions to RSL must use the default class option [manuscript].
 % At other stages the [preprint] option can be handy.
 %
-\documentclass[manuscript]{rsl}
+\documentclass[preprint]{rsl}
 %\documentclass{rsl}
 
 %
@@ -36,8 +36,9 @@ Wout~Joseph
 %
 
 \begin{abstract}
-This letter presents empirical on-body path loss (PL) models for radio-frequency electromagnetic fields (RF-EMFs) at frequencies in the D-band, ranging from 110 to 170~GHz. 
-PL is measured for distances ranging from 1 to 19~cm using a vector network analyzer (VNA)-based channel sounder with frequency extenders and using vertically and horizontally polarized horn antennas placed at heights of 1~mm to 6~mm above a skin phantom.
+This letter presents empirical on-body path loss (PL) models for radio-frequency electromagnetic fields (RF-EMFs) at frequencies in the D-band. 
+For the first time, PL is measured at frequencies ranging from 110 to 170~GHz with the antennas placed at heights of 1 to 6~mm above a skin phantom, and with very small antenna separations ranging from 1 to 19~cm.
+PL is measured using a vector network analyzer (VNA)-based channel sounder with frequency extenders and using vertically and horizontally polarized horn antennas. 
 The measured PL is fitted to an alpha-beta-gamma model, and wideband PL is fitted to a floating-intercept model.
 Both models have a high reference PL and low PL exponent below 1. 
 Even though the frequency dependence is small, PL increases with frequency. 
@@ -72,7 +73,7 @@ In the remainder of this letter, we will refer to on-body PL measurements when t
 This measurement setup is presented in Fig.~\ref{fig:sounder_setup}.
 \begin{figure}[tb]
 \begin{center}
-	\includegraphics[width=0.95\textwidth]{figures/measurement_setup}
+	\includegraphics[width=0.45\textwidth]{figures/measurement_setup}
 \caption{The measurement setup with a vector network analyzer (VNA)-based channel sounder.}
 \label{fig:sounder_setup}
 \end{center}
@@ -117,12 +118,11 @@ Measurements were performed with both horizontal (HH) and vertical (VV) co-polar
 
 \subsection{Skin phantom}
 
-A low-cost tissue-equivalent phantom emulating the dielectric properties of human skin in the D-band was used. 
-The phantom measures 20 by 15~cm with a thickness of 15~mm and is composed of 69.3\% de-ionized water, 29.7\% gelatin powder, and $\sim$1\% agar-agar~\cite{aminzadeh2014_ELetters}. 
-The choice of a gelatin-based phantom was motivated by the fact that gelatin is mainly made of collagen, i.e., the main constituent of dry matter in the skin. 
-This phantom was characterized for frequencies up to 40~GHz. 
-A similar phantom with only 1.4\% increased mass of gelatin powder~\cite{aminzadeh2017_awpl} was shown to represent the skin's dielectric properties up to 100~GHz. 
-In~\cite{aminzadeh2014_thesis} an analytical model of the human skin with a water content of 70\%, i.e., similar to the phantom that we used, was validated with the measurement data in the literature $<$100~GHz and a maximum deviation of 10\% was reported. 
+A low-cost tissue-equivalent phantom measuring 20 by 15~cm was used to emulate the dielectric properties of a human skin. 
+It has a thickness of 15~mm and is composed of 69.3\% de-ionized water, 29.7\% gelatin powder, and $\sim$1\% agar-agar~\cite{aminzadeh2014_ELetters}. 
+This phantom was characterized for frequencies up to 40~GHz, but it is considered to be representative for D-band frequencies based on the following observations.
+(i) In~\cite{aminzadeh2017_awpl}, a similar phantom with only 1.4\% increased mass of gelatin powder was shown to represent the skin's dielectric properties up to 100~GHz. 
+(ii) In~\cite{aminzadeh2014_thesis}, an analytical model of the human skin with a water content of 70\% was validated with the measurement data in the literature $<$100~GHz and a maximum deviation of 10\% was reported. 
 In addition, it was shown that this deviation decreased for frequencies higher than 75~GHz.
 
 \subsection{Data processing}
@@ -192,11 +192,11 @@ The measured PL is higher than FSPL, and the highest PL is measured for the lowe
 Moreover, the measured PL for horizontal co-polarized antennas (HH) is higher than for vertically polarized antennas (VV).
 The values for $\beta$ and $\gamma$ are low compared to the higher PL exponents ranging from 2 to 5 that are reported at millimeter-wave frequencies \cite{Petrillo2014, Aminzadeh2021_tap}. 
 This is explained by the small antenna separations at which near-field effects need to be considered, whereas, the PL calculation in (\ref{eq:PL}) considers the far-field antenna gain.
-Therefore, high PL values are obtained for smaller distances, which results in a smaller slope, i.e., a high reference PL $\alpha$ and low fitted values for $\beta$ and $\gamma$.
+A larger antenna inefficiency at small antenna separations results in the high measured PL values for smaller distances, which results in a smaller slope, i.e., a high reference PL $\alpha$ and low fitted values for $\beta$ and $\gamma$.
 
 \begin{figure}[t]
 \begin{center}
-  \includegraphics[width=0.95\textwidth]{figures/PL_vs_freq}
+  \includegraphics[width=0.45\textwidth]{figures/PL_vs_freq}
 \caption{Measured path loss (PL) as a function of frequency for an antenna height of 1~mm above the skin phantom, antenna separations 10 and 19~cm, and vertical (VV) and horizontal (HH) co-polarizations.}
 \label{fig:PL_vs_freq}
 \end{center}
@@ -224,7 +224,7 @@ Figure~\ref{fig:PDP} shows the PDP for some select measurement scenarios.
 It is clear that round-trip reflections, i.e., reflections on the TX and RX antennas, are present.
 \begin{figure}[tb]
 \begin{center}
-	\includegraphics[width=0.95\textwidth]{figures/PDP.png}
+	\includegraphics[width=0.45\textwidth]{figures/PDP.png}
 \caption{Measured power delay profile (PDP) for different antenna separations and polarizations, with the antennas placed at 1~mm above the skin phantom.}
 \label{fig:PDP}
 \end{center}
@@ -235,11 +235,11 @@ Wideband PL is obtained by selecting the power of the first peak and converting 
 The measured PL as a function of distance is shown in Fig.~\ref{fig:PL_vs_dist}. 
 \begin{figure}[tb]
 \begin{center}
-	\includegraphics[width=0.95\textwidth]{figures/PL_vs_dist_VV}
+	\includegraphics[width=0.45\textwidth]{figures/PL_vs_dist_VV}
 	\\
 	(a) VV
 	\\
-	\includegraphics[width=0.95\textwidth]{figures/PL_vs_dist_HH}
+	\includegraphics[width=0.45\textwidth]{figures/PL_vs_dist_HH}
 	\\
 	(b) HH
 \caption{Measured wideband PL as a function of distance for different antenna heights.}
@@ -291,8 +291,8 @@ The PL is higher when the height above the phantom is lower, and for a horizonta
 The latter can be caused by the larger half-power beamwidth of the antennas in the H-plane.
 The PL exponent is similar to values reported in literature when only antenna separations above 10~cm are considered.
 
-Future work includes the characterization of the skin phantom at D-band frequencies and the validation of the PL models on a real human body, also taking into account antenna mismatch, e.g., caused by wrist rotation.
-Furthermore, a joint antenna and channel model is required, i.e., the antenna and channel characteristics need to be evaluated jointly as the antenna cannot be de-embedded from the measurements via the characteristics that are typically presented in the datasheet.
+Future work includes analyzing the impact of different shapes of the phantom while considering LOS path blockage and antenna mismatch, e.g., caused by a wrist rotation, and a full characterization of the skin phantom at D-band frequencies. 
+Furthermore, the comparison of the measurements with numerical simulations and the validation of the PL models on a real human body is pending, and a joint antenna and channel model is required, i.e., the antenna and channel characteristics need to be evaluated jointly as the antenna cannot be de-embedded from the measurements via the characteristics that are typically presented in the datasheet.
 
 \section{Acknowledgment}
 
