@@ -37,7 +37,7 @@ Wout~Joseph
 
 \begin{abstract}
 This letter presents empirical on-body path loss (PL) models for radio-frequency electromagnetic fields (RF-EMFs) at frequencies in the D-band. 
-For the first time, PL is measured at frequencies ranging from 110 to 170~GHz with the antennas placed at heights of 1 to 6~mm above a skin phantom, and with very small antenna separations ranging from 1 to 19~cm.
+For the first time, PL is measured at frequencies from 110 to 170~GHz with the antennas placed at heights of 1 to 6~mm above a skin phantom, and with very small antenna separations from 1 to 19~cm.
 PL is measured using a vector network analyzer (VNA)-based channel sounder with frequency extenders and using vertically and horizontally polarized horn antennas. 
 The measured PL is fitted to an alpha-beta-gamma model, and wideband PL is fitted to a floating-intercept model.
 Both models have a high reference PL and low PL exponent below 1. 
@@ -122,8 +122,8 @@ A low-cost tissue-equivalent phantom measuring 20 by 15~cm was used to emulate t
 It has a thickness of 15~mm and is composed of 69.3\% de-ionized water, 29.7\% gelatin powder, and $\sim$1\% agar-agar~\cite{aminzadeh2014_ELetters}. 
 This phantom was characterized for frequencies up to 40~GHz, but it is considered to be representative for D-band frequencies based on the following observations.
 (i) In~\cite{aminzadeh2017_awpl}, a similar phantom with only 1.4\% increased mass of gelatin powder was shown to represent the skin's dielectric properties up to 100~GHz. 
-(ii) In~\cite{aminzadeh2014_thesis}, an analytical model of the human skin with a water content of 70\% was validated with the measurement data in the literature $<$100~GHz and a maximum deviation of 10\% was reported. 
-In addition, it was shown that this deviation decreased for increasing frequencies.
+(ii) In~\cite{aminzadeh2014_thesis}, an analytical model of the human skin with a water content of 70\% was validated with measurement data from literature $<$100~GHz and a maximum deviation of 10\% was reported. 
+In addition, it was shown that this deviation decreased for increasing frequencies. Hence, we assume that this downward trend in error would continue in the D-band.
 
 \subsection{Data processing}
 
@@ -193,7 +193,7 @@ The measured PL is higher than FSPL, and the highest PL is measured for the lowe
 Moreover, the measured PL for horizontal co-polarized antennas (HH) is higher than for vertically polarized antennas (VV).
 The values for $\beta$ and $\gamma$ are low compared to the higher PL exponents ranging from 2 to 5 that are reported at millimeter-wave frequencies \cite{Petrillo2014, Aminzadeh2021_tap}. 
 This is explained by the small antenna separations at which near-field effects need to be considered, whereas, the PL calculation in (\ref{eq:PL}) considers the far-field antenna gain.
-A larger antenna inefficiency at small antenna separations results in the high measured PL values for smaller distances, which results in a smaller slope, i.e., a high reference PL $\alpha$ and low fitted values for $\beta$ and $\gamma$.
+A larger antenna inefficiency at small antenna separations results in the high measured PL values for smaller distances, which results in a smaller slope, i.e., a high reference PL ($\alpha$) and low fitted values for $\beta$ and $\gamma$.
 
 \begin{figure}[t]
 \begin{center}
@@ -276,7 +276,7 @@ Table~\ref{table:FI} lists the fitted parameters of the FI PL model when only an
 \end{table}
 
 The difference between measured PL and FSPL is higher for small distances, due to a bad performance of the antennas, i.e., they are too close for efficient radiation. 
-Even though the antennas are still in the near field, the measured PL is closer to FSPL for larger distances. 
+%Even though the antennas are still in the near field, the measured PL is closer to FSPL for larger distances. 
 Due to the high PL for small distances, both the ABG and FI models result in a PL exponent well below 2, with a reference PL above FSPL. 
 PL is lower when the antennas are placed at a higher height above the skin phantom. 
 
@@ -291,14 +291,15 @@ Both effects result in a path loss model with a high reference path loss and low
 The PL is higher when the height above the phantom is lower, and for a horizontally co-polarized antenna setup. 
 The latter can be caused by the larger half-power beamwidth of the antennas in the H-plane.
 The PL exponent is similar to values reported in literature when only antenna separations above 10~cm are considered.
-
+%
 Future work includes analyzing the impact of different shapes of the phantom while considering LOS path blockage and antenna mismatch, e.g., caused by a wrist rotation, and a full characterization of the skin phantom at D-band frequencies. 
-Furthermore, the comparison of the measurements with numerical simulations and the validation of the PL models on a real human body is pending, and a joint antenna and channel model is required, i.e., the antenna and channel characteristics need to be evaluated jointly as the antenna cannot be de-embedded from the measurements via the characteristics that are typically presented in the datasheet.
+Furthermore, the comparison of the measurements with numerical simulations and the validation of the PL models on a real human body is pending. 
+Moreover, a joint antenna and channel model where the antenna and channel characteristics are evaluated jointly would be beneficial.
 
 \section{Acknowledgment}
 
-This work was executed within the imec AAA D-band channel modeling research project (D-BARC) and EOS project multi-service wireless network (MUSE-WINET). 
-
+This work was executed within the imec AAA D-band channel modeling research project (D-BARC). 
+Arno Thielens is a postdoctoral fellow of the Research Foundation – Flanders (FWO) under grant agreement 1283921N.
 \vspace{3pt}
 
 \suppressfloats
