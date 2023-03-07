@@ -22,8 +22,8 @@
 %
 \title{On-Body Path Loss Modeling\\ in the 110 to 170~GHz Frequency Range}
 \author{Brecht De Beelde,
-Reza~Aminzadeh,
 Arno~Thielens,
+Reza~Aminzadeh,
 Wout~Joseph
 }
 
@@ -73,7 +73,7 @@ In the remainder of this letter, we will refer to on-body PL measurements when t
 This measurement setup is presented in Fig.~\ref{fig:sounder_setup}.
 \begin{figure}[tb]
 \begin{center}
-	\includegraphics[width=0.45\textwidth]{figures/measurement_setup}
+	\includegraphics[width=0.46\textwidth]{figures/measurement_setup}
 \caption{The measurement setup with a vector network analyzer (VNA)-based channel sounder.}
 \label{fig:sounder_setup}
 \end{center}
@@ -187,7 +187,7 @@ Figure~\ref{fig:PL_vs_freq} visualizes measured PL as a function of frequency fo
 Fitting the measurement data to the ABG model from (\ref{eq:ABG}) results in the fitted parameters listed in Table~\ref{table:ABG}. 
 Both the PL exponent $\beta$ and frequency-dependence $\gamma$ are smaller than the free space value of 2. 
 The p-values of all fitted parameters are below the significance level of 10$^{-3}$. 
-The error between the model and measured PL samples across all frequency and distance samples follows a normal distribution with zero mean and a standard variation close to the root-mean-squared error (RSME). 
+The error between the model and measured PL samples across all frequency and distance samples follows a normal distribution with zero mean and a standard variation close to the root-mean-squared error (RMSE). 
 
 The measured PL is higher than FSPL, and the highest PL is measured for the lowest height of 1~mm above the skin phantom.
 Moreover, the measured PL for horizontal co-polarized antennas (HH) is higher than for vertically polarized antennas (VV).
@@ -197,7 +197,7 @@ A larger antenna inefficiency at small antenna separations results in the high m
 
 \begin{figure}[t]
 \begin{center}
-  \includegraphics[width=0.45\textwidth]{figures/PL_vs_freq}
+  \includegraphics[width=0.46\textwidth]{figures/PL_vs_freq}
 \caption{Measured path loss (PL) as a function of frequency for an antenna height of 1~mm above the skin phantom, antenna separations 10 and 19~cm, and vertical (VV) and horizontal (HH) co-polarizations.}
 \label{fig:PL_vs_freq}
 \end{center}
@@ -225,7 +225,7 @@ Figure~\ref{fig:PDP} shows the PDP for some select measurement scenarios.
 It is clear that round-trip reflections, i.e., reflections on the TX and RX antennas, are present.
 \begin{figure}[tb]
 \begin{center}
-	\includegraphics[width=0.45\textwidth]{figures/PDP.png}
+	\includegraphics[width=0.46\textwidth]{figures/PDP.png}
 \caption{Measured power delay profile (PDP) for different antenna separations and polarizations, with the antennas placed at 1~mm above the skin phantom.}
 \label{fig:PDP}
 \end{center}
@@ -303,8 +303,105 @@ Arno Thielens is a postdoctoral fellow of the Research Foundation – Flanders (
 \vspace{3pt}
 
 \suppressfloats
-\bibliographystyle{IEEEtran}
-\bibliography{RSL_140GHz_body}
+
+\begin{thebibliography}{9}
+
+\bibitem{Patel2010}
+M.~Patel and J.~Wang, ``Applications, Challenges, and Prospective in Emerging Body Area Networking Technologies,'' \emph{IEEE Wireless Communications}, \textbf{17}, 1, February 2010, pp. 80--88.
+
+\bibitem{Marinova2015}
+M.~Marinova, A.~Thielens, E.~Tanghe, L.~Vallozzi, G.~Vermeeren, W.~Joseph, H.~Rogier, and L.~Martens, 
+``Diversity Performance of Off-Body MB-OFDM UWB-MIMO,'' 
+\emph{IEEE Transactions on Antennas and Propagation}, \textbf{63}, 7, July 2015, pp. 3187--3197.
+
+\bibitem{VanRoy2010}
+S.~van Roy, C.~Oestges, F.~Horlin, and P.~De~Doncker, 
+``A Comprehensive Channel Model for UWB Multisensor Multiantenna Body Area Networks,'' 
+\emph{IEEE Transactions on Antennas and Propagation}, \textbf{58}, 1, January 2010, pp. 163--170.
+
+\bibitem{Chahat2013}
+N.~Chahat, G.~Valerio, M.~Zhadobov, and R.~Sauleau, 
+``On-body Propagation at 60 GHz,'' 
+\emph{IEEE Transactions on Antennas and Propagation}, \textbf{61}, 4, April 2013, pp. 1876--1888.
+
+\bibitem{Petrillo2014}
+L.~Petrillo, T.~Mavridis, J.~Sarrazin, D.~Lautru, A.~Benlarbi-Delaï, and P.~De~Doncker, 
+``Analytical Creeping Wave Model and Measurements for 60 GHz Body Area Networks,'' 
+\emph{IEEE Transactions on Antennas and Propagation}, \textbf{62}, 8, August 2014, pp. 4352--4356.
+
+\bibitem{Aminzadeh2021_tap}
+R.~Aminzadeh, A.~Thielens, M.~Zhadobov, L.~Martens, and W.~Joseph, 
+``WBAN Channel Modeling for 900 MHz and 60 GHz Communications,'' 
+\emph{IEEE Transactions on Antennas and Propagation}, \textbf{69}, 7, July 2021, pp. 4083--4092.
+
+\bibitem{Brizzi2013}
+A.~Brizzi, A.~Pellegrini, L.~Zhang, and Y.~Hao, 
+``Statistical Path-Loss Model for On-Body Communications at 94 GHz,'' 
+\emph{IEEE Transactions on Antennas and Propagation}, \textbf{61}, 11, November 2013, pp. 5744--5753.
+
+\bibitem{Ali2022}
+K.~Ali, A.~Brizzi, A.~N. Khan, and Y.~Hao, 
+``On-Body NLOS Radio Channel at Millimeter Wave Frequencies,'' 
+\emph{IEEE Transactions on Antennas and Propagation}, \textbf{72}, 2, February 2023, pp. 1783--1792.
+
+\bibitem{Reusens2009}
+E.~Reusens, W.~Joseph, B.~LatrÉ, B.~Braem, G.~Vermeeren, E.~Tanghe, L.~Martens, I.~Moerman, and C.~Blondia, 
+``Characterization of On-Body Communication Channel and Energy Efficient Topology Design for Wireless Body Area Networks,'' \emph{IEEE Transactions on Information Technology in Biomedicine}, \textbf{13}, 6, November 2009, pp. 933--945.
+
+\bibitem{Proesmans2022}
+Proesmans, Remko and Deprez, Kenneth and Velghe, Maarten and Thielens, Arno,
+``An On-Body Antenna for Control of a Wireless Prosthesis in the 2.45 GHz Industrial Scientific and Medical Frequency Band,'' \emph{IET Microwaves, Antennas \& Propagation}, \textbf{16}, {15}, December 2022, pp. {919--932}.
+
+\bibitem{Cornet2022}
+B.~Cornet, H.~Fang, H.~Ngo, E.~W. Boyer, and H.~Wang, 
+``An Overview of Wireless Body Area Networks for Mobile Health Applications,'' 
+\emph{IEEE Network}, \textbf{36}, 1, February 2022, pp. 76--82.
+
+\bibitem{DeBeelde2021_access}
+B.~De~Beelde, D.~Plets, C.~Desset, E.~Tanghe, A.~Bourdoux, and W.~Joseph,
+``Material Characterization and Radio Channel Modeling at D-Band Frequencies,'' 
+\emph{IEEE Access}, \textbf{9}, November 2021, pp. 153528--153539.
+
+\bibitem{Pometcu2020}
+L.~Pometcu and R.~D’Errico, 
+``An Indoor Channel Model for High Data-Rate Communications in D-Band,'' 
+\emph{IEEE Access}, \textbf{8}, December 2020, pp. 9420--9433.
+
+\bibitem{DeBeelde2022_tap}
+B.~De~Beelde, R.~De~Beelde, E.~Tanghe, D.~Plets, K.~Verheyen, and W.~Joseph,
+``Vegetation Loss at D-Band Frequencies and New Vegetation-Dependent Exponential Decay Model,'' 
+\emph{IEEE Transactions on Antennas and Propagation}, \textbf{70}, 12, December 2022, pp. 12092--12103.
+
+\bibitem{DeBeelde2022_wcl}
+B.~De~Beelde, E.~Tanghe, D.~Plets, and W.~Joseph, 
+``Outdoor Channel Modeling at D-Band Frequencies for Future Fixed Wireless Access Applications,''
+\emph{IEEE Wireless Communications Letters}, \textbf{11}, 11, November 2022, pp. 2355--2359.
+
+\bibitem{DeBeelde2021_eucap}
+B.~{De Beelde}, D.~{Plets}, E.~{Tanghe}, and W.~{Joseph}, 
+``Directional sub-thz antenna-channel modelling for indoor scenarios,'' 
+\emph{2021 15th European Conference on Antennas and Propagation (EuCAP)}, Dusseldorf, Germany, March 2021, pp. 1--4.
+
+\bibitem{aminzadeh2014_ELetters}
+R.~{Aminzadeh}, M.~{Saviz}, and A.~{Shishegar}, ``Theoretical and Experimental Broadband Tissue-Equivalent Phantoms at Microwave and Millimetre-Wave Frequencies,'' \emph{Electronics Letters}, \textbf{50}, 8, April 2014, pp. 618--620.
+
+\bibitem{aminzadeh2017_awpl}
+R. {Aminzadeh} and M. {Saviz} and A.A. {Shishegar}, 
+``Comments on “Wideband Skin-Equivalent Phantom for V- and W-band”,'' 
+\emph{IEEE Antennas and Wireless Propagation Letters}, \textbf{16}, March 2017, pp. 3257--3257.
+
+\bibitem{aminzadeh2014_thesis}
+R.~Aminzadeh, ``Simulation and Assessment of Millimeter-Wave Reflectometry for
+  Detection of Skin Cancers,'' Master's thesis, Sharif University of
+  Technology, Iran, 2014.
+
+\bibitem{Salous2020}
+S.~Salous, J.~Lee, M.~D. Kim, M.~Sasaki, W.~Yamada, X.~Raimundo, and A.~A. Cheema, 
+``Radio Propagation Measurements and Modeling for Standardization of
+  the Site General Path Loss Model in International Telecommunications Union
+  Recommendations for 5G Wireless Networks,'' \emph{Radio Science}, \textbf{55}, 1, January 2020.
+
+\end{thebibliography}
 \suppressfloats
 
 \vspace{7pt}
